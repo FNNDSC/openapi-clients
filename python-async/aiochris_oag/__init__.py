@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.1a1"
+__version__ = "0.0.1a3"
 
 # import apis into sdk package
 from aiochris_oag.api.auth_token_api import AuthTokenApi
