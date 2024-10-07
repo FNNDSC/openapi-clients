@@ -1,0 +1,6 @@
+/schema*.yaml
+
+/.venv
+
+dist
+

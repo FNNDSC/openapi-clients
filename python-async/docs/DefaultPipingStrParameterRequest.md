@@ -1,0 +1,29 @@
+# DefaultPipingStrParameterRequest
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**value** | **str** |  | [optional] 
+
+## Example
+
+```python
+from aiochris_oag.models.default_piping_str_parameter_request import DefaultPipingStrParameterRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of DefaultPipingStrParameterRequest from a JSON string
+default_piping_str_parameter_request_instance = DefaultPipingStrParameterRequest.from_json(json)
+# print the JSON string representation of the object
+print(DefaultPipingStrParameterRequest.to_json())
+
+# convert the object into a dict
+default_piping_str_parameter_request_dict = default_piping_str_parameter_request_instance.to_dict()
+# create an instance of DefaultPipingStrParameterRequest from a dict
+default_piping_str_parameter_request_from_dict = DefaultPipingStrParameterRequest.from_dict(default_piping_str_parameter_request_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

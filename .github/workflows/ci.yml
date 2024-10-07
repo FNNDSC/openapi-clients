@@ -1,0 +1,200 @@
+# TODO ADD PIXI
+name: Release
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'version.txt'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: true
+      matrix:
+        name:
+          - python
+          - python-async
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install build
+        run: pip install --break-system-packages build
+      - name: Build dist
+        run: python -m build ${{ matrix.name }}
+      - name: Store the distribution packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: ${{ matrix.name }}/dist/
+  publish:
+    name: Publish
+    runs-on: ubuntu-24.04
+    needs: build
+    steps:
+      - name: Download distributions packages
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          pattern: python*
+          merge-multiple: true
+      - name: Parse PEP 508 requirement strings
+        id: requirements
+        run: |
+          find dist -type f -name '*.whl' -printf "%f\n" \
+            | sed 's/-py3-none-any.whl//' \
+            | sed 's/-/==/' \
+            | xargs -I '%' bash -c 'echo "$(sed "s/==.*//" <<< %)=%"' \
+            | tee -a "$GITHUB_OUTPUT"
+      - name: Assert PEP 508 requirement strings are not empty
+        run: |
+          if [ -z '${{ steps.requirements.outputs.chris_oag}}' ]; then
+            echo "::error ::steps.requirements.outputs.chris_oag is empty"
+            exit 1
+          fi
+          if [ -z '${{ steps.requirements.outputs.aiochris_oag}}' ]; then
+            echo "::error ::steps.requirements.outputs.aiochris_oag is empty"
+            exit 1
+          fi
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # TODO change to prod PyPI
+          repository-url: https://test.pypi.org/legacy/
+          password: '${{ secrets.TEST_PYPI_TOKEN }}'
+          # password: '${{ secrets.PYPI_API_TOKEN }}'
+    outputs:
+      pep508_chris_oag: ${{ steps.requirements.outputs.chris_oag }}
+      pep508_aiochris_oag: ${{ steps.requirements.outputs.aiochris_oag }}
+
+  oci-image:
+    name: Push OCI Image
+    runs-on: ubuntu-24.04
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        name:
+          - python
+          - python-async
+    outputs:
+      python-image:         ${{ steps.info.outputs.python-image }}
+      python-version:       ${{ steps.info.outputs.python-version }}
+      python-async-image:   ${{ steps.info.outputs.python-async-image }}
+      python-async-version: ${{ steps.info.outputs.python-async-version }}
+    steps:
+      - name: Download distributions packages
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: dist
+      - name: Create Dockerfile
+        run: |
+          tee Dockerfile << EOF
+          FROM docker.io/library/python:3.12.7-alpine3.20
+          RUN --mount=source=dist,target=/dist PYTHONDONTWRITEBYTECODE=1 pip install --no-cache-dir /dist/*.whl
+          EOF
+      - name: Get version
+        id: info
+        run: |
+          version="$(
+            find dist -type f -name '*.whl' -printf "%f\n" \
+              | head -n 1 \
+              | grep -Eom 1 '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+(a|b)*[[:digit:]]*'
+          )"
+          image='ghcr.io/${{ github.repository_owner }}/${{ matrix.name }}-client'
+          image="${image,,}"
+          tee -a "$GITHUB_OUTPUT" << EOF
+          version=$version
+          ${{ matrix.name }}-version=$version
+          image=$image
+          ${{ matrix.name }}-image=$image
+          EOF
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ steps.info.outputs.image }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=raw,value=${{ steps.info.outputs.version }}
+            type=raw,value=latest,enable={{is_default_branch}}
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+      
+
+  gh-release:
+    name: Create GitHub Release
+    runs-on: ubuntu-24.04
+    needs:
+      - oci-image
+      - publish
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: version.txt
+          sparse-checkout-cone-mode: false
+      - name: Get version
+        id: version
+        run: echo "version=$(< version.txt)" >> "$GITHUB_OUTPUT"
+      - uses: softprops/action-gh-release@v2
+        with:
+          draft: false
+          prerelease: ${{ contains(steps.version.outputs.version, '-') }}
+          name: ChRIS Clients - version ${{ steps.version.outputs.version }}
+          body: |
+            ## Python Async Client
+
+            ```shell
+            # using uv - https://docs.astral.sh/uv/
+            uv pip install ${{ needs.publish.outputs.pep508_aiochris_oag }}
+
+            # using rye - https://rye.astral.sh/
+            rye add ${{ needs.publish.outputs.pep508_aiochris_oag }}
+
+            # using pip
+            pip install ${{ needs.publish.outputs.pep508_aiochris_oag }}
+
+            # using Docker
+            docker pull ${{ needs.oci-image.outputs.python-async-image }}:${{ needs.oci-image.outputs.python-async-version }}
+            
+            # using Podman
+            docker pull ${{ needs.oci-image.outputs.python-async-image }}:${{ needs.oci-image.outputs.python-async-version }}
+            ```
+
+            ## Python urllib3 Client
+
+            ```shell
+            # using uv - https://docs.astral.sh/uv/
+            uv pip install ${{ needs.publish.outputs.pep508_chris_oag }}
+
+            # using rye - https://rye.astral.sh/
+            rye add ${{ needs.publish.outputs.pep508_chris_oag }}
+
+            # using pip
+            pip install ${{ needs.publish.outputs.pep508_chris_oag }}
+
+            # using Docker
+            docker pull ${{ needs.oci-image.outputs.python-image }}:${{ needs.oci-image.outputs.python-version }}
+            
+            # using Podman
+            docker pull ${{ needs.oci-image.outputs.python-image }}:${{ needs.oci-image.outputs.python-version }}
+            ```
