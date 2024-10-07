@@ -178,7 +178,7 @@ jobs:
             docker pull ${{ needs.oci-image.outputs.python-async-image }}:${{ needs.oci-image.outputs.python-async-version }}
             
             # using Podman
-            docker pull ${{ needs.oci-image.outputs.python-async-image }}:${{ needs.oci-image.outputs.python-async-version }}
+            podman pull ${{ needs.oci-image.outputs.python-async-image }}:${{ needs.oci-image.outputs.python-async-version }}
             ```
 
             ## Python urllib3 Client
@@ -197,5 +197,5 @@ jobs:
             docker pull ${{ needs.oci-image.outputs.python-image }}:${{ needs.oci-image.outputs.python-version }}
             
             # using Podman
-            docker pull ${{ needs.oci-image.outputs.python-image }}:${{ needs.oci-image.outputs.python-version }}
+            podman pull ${{ needs.oci-image.outputs.python-image }}:${{ needs.oci-image.outputs.python-version }}
             ```
