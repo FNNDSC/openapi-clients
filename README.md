@@ -3,6 +3,19 @@
 This repository contains client libraries for the [_ChRIS_ backend](https://github.com/fnndsc/ChRIS_ultron_backEnd)
 created using the [OpenAPI generator](https://openapi-generator.tech/).
 
+## Documentation
+
+| Package        | Language | Description                                     |
+|----------------|----------|-------------------------------------------------|
+| [aiochris-oag] | Python   | Python client based on [asyncio] and [aiohttp]. |
+| [chris-oag]    | Python   | Python client based on [urllib3].               |
+
+[aiochris-oag]: ./python-async/README.md
+[chris-oag]: ./python/README.md
+[asyncio]: https://docs.python.org/3/library/asyncio.html
+[aiohttp]: https://docs.aiohttp.org
+[urllib3]: https://urllib3.readthedocs.io
+
 ## Releasing
 
 It would be nice for this to be fully automated, but currently it is not. https://github.com/FNNDSC/ChRIS_ultron_backEnd/issues/587

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aiochris_oag"
-version = "0.1.0b1"
+version = "0.0.1"
 description = "ChRIS Research Integration System: Ultron BackEnd (CUBE) API"
 authors = ["Fetal-Neonatal Neuroimaging Developmental Science Center <dev@babymri.org>"]
 license = "MIT"
