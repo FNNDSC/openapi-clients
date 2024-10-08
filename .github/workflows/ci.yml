@@ -1,4 +1,3 @@
-# TODO ADD PIXI
 name: Release
 
 on:
@@ -8,8 +7,8 @@ on:
       - 'version.txt'
 
 jobs:
-  build:
-    name: Build
+  build-python:
+    name: Build Python packages
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: true
@@ -20,6 +19,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          sparse-checkout: ${{ matrix.name }}
       - name: Install build
         run: pip install --break-system-packages build
       - name: Build dist
@@ -29,10 +30,10 @@ jobs:
         with:
           name: ${{ matrix.name }}
           path: ${{ matrix.name }}/dist/
-  publish:
-    name: Publish
+  publish-python:
+    name: Publish Python packages
     runs-on: ubuntu-24.04
-    needs: build
+    needs: build-python
     steps:
       - name: Download distributions packages
         uses: actions/download-artifact@v4
@@ -61,18 +62,15 @@ jobs:
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          # TODO change to prod PyPI
-          repository-url: https://test.pypi.org/legacy/
-          password: '${{ secrets.TEST_PYPI_TOKEN }}'
-          # password: '${{ secrets.PYPI_API_TOKEN }}'
+          password: '${{ secrets.PYPI_API_TOKEN }}'
     outputs:
       pep508_chris_oag: ${{ steps.requirements.outputs.chris_oag }}
       pep508_aiochris_oag: ${{ steps.requirements.outputs.aiochris_oag }}
 
-  oci-image:
-    name: Push OCI Image
+  oci-image-python:
+    name: Build and push Python OCI images
     runs-on: ubuntu-24.04
-    needs: build
+    needs: build-python
     strategy:
       fail-fast: false
       matrix:
@@ -138,14 +136,28 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      
+
+  # rust-crate:
+  #   name: Build and publish Rust crate
+  #   runs-on: ubuntu-24.04
+  #   env:
+  #     CARGO_TERM_COLOR: always
+  #   steps:
+  #     - name: Git checkout
+  #       uses: actions/checkout@v4
+  #       with:
+  #         sparse-checkout: rust
+  #     - name: cargo publish
+  #       run: cargo publish --manifest-path rust/Cargo.toml
+  #       env:
+  #         CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
 
   gh-release:
     name: Create GitHub Release
     runs-on: ubuntu-24.04
     needs:
-      - oci-image
-      - publish
+      - oci-image-python
+      - publish-python
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -166,36 +178,36 @@ jobs:
 
             ```shell
             # using uv - https://docs.astral.sh/uv/
-            uv pip install ${{ needs.publish.outputs.pep508_aiochris_oag }}
+            uv pip install ${{ needs.publish-python.outputs.pep508_aiochris_oag }}
 
             # using rye - https://rye.astral.sh/
-            rye add ${{ needs.publish.outputs.pep508_aiochris_oag }}
+            rye add ${{ needs.publish-python.outputs.pep508_aiochris_oag }}
 
             # using pip
-            pip install ${{ needs.publish.outputs.pep508_aiochris_oag }}
+            pip install ${{ needs.publish-python.outputs.pep508_aiochris_oag }}
 
             # using Docker
-            docker pull ${{ needs.oci-image.outputs.python-async-image }}:${{ needs.oci-image.outputs.python-async-version }}
+            docker pull ${{ needs.oci-image-python.outputs.python-async-image }}:${{ needs.oci-image-python.outputs.python-async-version }}
             
             # using Podman
-            podman pull ${{ needs.oci-image.outputs.python-async-image }}:${{ needs.oci-image.outputs.python-async-version }}
+            podman pull ${{ needs.oci-image-python.outputs.python-async-image }}:${{ needs.oci-image-python.outputs.python-async-version }}
             ```
 
             ## Python urllib3 Client
 
             ```shell
             # using uv - https://docs.astral.sh/uv/
-            uv pip install ${{ needs.publish.outputs.pep508_chris_oag }}
+            uv pip install ${{ needs.publish-python.outputs.pep508_chris_oag }}
 
             # using rye - https://rye.astral.sh/
-            rye add ${{ needs.publish.outputs.pep508_chris_oag }}
+            rye add ${{ needs.publish-python.outputs.pep508_chris_oag }}
 
             # using pip
-            pip install ${{ needs.publish.outputs.pep508_chris_oag }}
+            pip install ${{ needs.publish-python.outputs.pep508_chris_oag }}
 
             # using Docker
-            docker pull ${{ needs.oci-image.outputs.python-image }}:${{ needs.oci-image.outputs.python-version }}
+            docker pull ${{ needs.oci-image-python.outputs.python-image }}:${{ needs.oci-image-python.outputs.python-version }}
             
             # using Podman
-            podman pull ${{ needs.oci-image.outputs.python-image }}:${{ needs.oci-image.outputs.python-version }}
+            podman pull ${{ needs.oci-image-python.outputs.python-image }}:${{ needs.oci-image-python.outputs.python-version }}
             ```

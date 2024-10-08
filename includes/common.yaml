@@ -1,0 +1,5 @@
+inputSpec: https://github.com/FNNDSC/ChRIS_ultron_backEnd/releases/download/v6.3.0-beta.4/schema_split.yaml
+gitHost: github.com
+gitUserId: FNNDSC
+gitRepoId: openapi-clients
+

@@ -1,0 +1,14 @@
+'!include': 'common.yaml'
+
+generatorName: typescript
+outputDir: typescript-browser
+
+# https://openapi-generator.tech/docs/generators/typescript/#config-options
+additionalProperties:
+  npmName: '@fnndsc/chris-oag-browser'
+  framework: framework
+  platform: browser
+  nullSafeAdditionalProps: true
+  paramNaming: camelCase
+  '!include': version_npm.yaml
+

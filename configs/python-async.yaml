@@ -1,0 +1,12 @@
+'!include': 'common.yaml'
+
+generatorName: python
+outputDir: python-async
+
+# https://openapi-generator.tech/docs/generators/python/#config-options
+additionalProperties:
+  packageName: aiochris_oag
+  projectName: aiochris-oag
+  library: asyncio
+  '!include': 'version_pep440.yaml'
+

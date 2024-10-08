@@ -1,0 +1,15 @@
+'!include': 'common.yaml'
+
+generatorName: typescript-axios
+outputDir: typescript-axios
+
+# https://openapi-generator.tech/docs/generators/typescript-axios/#config-options
+additionalProperties:
+  npmName: '@fnndsc/chris-oag'
+  withInterfaces: true
+  nullSafeAdditionalProps: true
+  paramNaming: camelCase
+  stringEnums: true
+  # what is withSeparateModelsAndApi?
+  '!include': version_npm.yaml
+

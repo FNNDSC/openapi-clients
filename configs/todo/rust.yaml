@@ -1,0 +1,12 @@
+'!include': 'common.yaml'
+
+generatorName: rust
+outputDir: rust
+
+# https://openapi-generator.tech/docs/generators/rust/#config-options
+additionalProperties:
+  library: reqwest
+  preferUnsignedInt: true
+  supportAsync: true
+  supportMiddleware: true
+  '!include': version.yaml

@@ -1,0 +1,14 @@
+'!include': 'common.yaml'
+
+generatorName: typescript-fetch
+outputDir: typescript-fetch
+
+# https://openapi-generator.tech/docs/generators/typescript-fetch/#config-options
+additionalProperties:
+  npmName: '@fnndsc/chris-oag'
+  withInterfaces: true
+  nullSafeAdditionalProps: true
+  paramNaming: camelCase
+  # stringEnums: true
+  '!include': version_npm.yaml
+

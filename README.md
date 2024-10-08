@@ -20,3 +20,10 @@ git add -A
 git commit -m "Version $(< version.txt)"
 git push origin main
 ```
+
+## Adding A Generator
+
+Many other generators are available. See the list here: https://openapi-generator.tech/docs/generators
+
+To add a generator, create a YAML configuration file for it in `configs`.
+

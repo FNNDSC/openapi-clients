@@ -1,0 +1,12 @@
+'!include': 'common.yaml'
+
+generatorName: python
+outputDir: python
+
+# https://openapi-generator.tech/docs/generators/python/#config-options
+additionalProperties:
+  packageName: chris_oag
+  projectName: chris-oag
+  library: urllib3
+  '!include': 'version_pep440.yaml'
+
