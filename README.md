@@ -40,3 +40,17 @@ Many other generators are available. See the list here: https://openapi-generato
 
 To add a generator, create a YAML configuration file for it in `configs`.
 
+## Hacks
+
+The [rust generator](https://openapi-generator.tech/docs/generators/rust/) is lacking for several reasons:
+
+- Produces `Option<Option<_>>`, which is partially fixed by upgrading to `openapi: 3.1.0` https://github.com/OpenAPITools/openapi-generator/issues/16283
+- Does not support `additionalProperties` https://github.com/OpenAPITools/openapi-generator/issues/20965 https://github.com/OpenAPITools/openapi-generator/issues/19989
+- Bug calling `format!()` with `Option<T>` https://github.com/OpenAPITools/openapi-generator/issues/20145
+- Produces non-compiling code https://github.com/OpenAPITools/openapi-generator/issues/19923
+- Subjectively, the code produced contains a lot of nonsense
+
+To avoid these problems, we:
+
+1. Avoid generating the Rust client, produce [serde](https://serde.rs/) models only
+2. Apply manual patches to fix models

@@ -1,12 +1,17 @@
 '!include': 'common.yaml'
 
+inputSpec: /share/hack/models_only.yaml
+
 generatorName: rust
 outputDir: rust
 
 # https://openapi-generator.tech/docs/generators/rust/#config-options
 additionalProperties:
-  library: reqwest
   preferUnsignedInt: true
-  supportAsync: true
-  supportMiddleware: true
+  # library: reqwest
+  # supportAsync: true
+  # supportMiddleware: true
+  # topLevelApiClient: true
+  # useBonBuilder: false
+  packageName: chris-oag
   '!include': version.yaml
