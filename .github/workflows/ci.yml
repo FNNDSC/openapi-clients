@@ -18,7 +18,7 @@ jobs:
           - python-async
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           sparse-checkout: ${{ matrix.name }}
       - name: Install build
@@ -26,7 +26,7 @@ jobs:
       - name: Build dist
         run: python -m build ${{ matrix.name }}
       - name: Store the distribution packages
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.name }}
           path: ${{ matrix.name }}/dist/
@@ -36,7 +36,7 @@ jobs:
     needs: build-python
     steps:
       - name: Download distributions packages
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: dist
           pattern: python*
@@ -84,14 +84,14 @@ jobs:
       python-async-version: ${{ steps.info.outputs.python-async-version }}
     steps:
       - name: Download distributions packages
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: ${{ matrix.name }}
           path: dist
       - name: Create Dockerfile
         run: |
           tee Dockerfile << EOF
-          FROM docker.io/library/python:3.12.7-alpine3.20
+          FROM docker.io/library/python:3.14.3-alpine3.23
           RUN --mount=source=dist,target=/dist PYTHONDONTWRITEBYTECODE=1 pip install --no-cache-dir /dist/*.whl
           EOF
       - name: Get version
@@ -112,7 +112,7 @@ jobs:
           EOF
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: ${{ steps.info.outputs.image }}
           tags: |
@@ -120,7 +120,7 @@ jobs:
             type=raw,value=${{ steps.info.outputs.version }}
             type=raw,value=latest,enable={{is_default_branch}}
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
@@ -128,7 +128,7 @@ jobs:
       - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
       - name: Build and push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           push: true
           context: .
@@ -160,14 +160,14 @@ jobs:
       - publish-python
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           sparse-checkout: version.txt
           sparse-checkout-cone-mode: false
       - name: Get version
         id: version
         run: echo "version=$(< version.txt)" >> "$GITHUB_OUTPUT"
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe #v2.6.1
         with:
           draft: false
           tag_name: v${{ steps.version.outputs.version }}
@@ -179,9 +179,6 @@ jobs:
             ```shell
             # using uv - https://docs.astral.sh/uv/
             uv pip install ${{ needs.publish-python.outputs.pep508_aiochris_oag }}
-
-            # using rye - https://rye.astral.sh/
-            rye add ${{ needs.publish-python.outputs.pep508_aiochris_oag }}
 
             # using pip
             pip install ${{ needs.publish-python.outputs.pep508_aiochris_oag }}
@@ -198,9 +195,6 @@ jobs:
             ```shell
             # using uv - https://docs.astral.sh/uv/
             uv pip install ${{ needs.publish-python.outputs.pep508_chris_oag }}
-
-            # using rye - https://rye.astral.sh/
-            rye add ${{ needs.publish-python.outputs.pep508_chris_oag }}
 
             # using pip
             pip install ${{ needs.publish-python.outputs.pep508_chris_oag }}
