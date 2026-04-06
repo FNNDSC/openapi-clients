@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **note_retrieve**
 > Note note_retrieve(id)
 
-
-
 A note view.
 
 ### Example
@@ -102,8 +100,6 @@ Name | Type | Description  | Notes
 
 # **note_update**
 > Note note_update(id, note_request=note_request)
-
-
 
 A note view.
 

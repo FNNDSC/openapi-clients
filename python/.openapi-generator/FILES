@@ -50,6 +50,7 @@ chris_oag/models/default_piping_int_parameter.py
 chris_oag/models/default_piping_int_parameter_request.py
 chris_oag/models/default_piping_str_parameter.py
 chris_oag/models/default_piping_str_parameter_request.py
+chris_oag/models/deletion_status_enum.py
 chris_oag/models/feed.py
 chris_oag/models/feed_group_permission.py
 chris_oag/models/feed_group_permission_request.py
@@ -88,9 +89,14 @@ chris_oag/models/group_user_request.py
 chris_oag/models/int_parameter.py
 chris_oag/models/note.py
 chris_oag/models/note_request.py
+chris_oag/models/pacs.py
 chris_oag/models/pacs_file.py
+chris_oag/models/pacs_query.py
+chris_oag/models/pacs_query_request.py
+chris_oag/models/pacs_query_status.py
+chris_oag/models/pacs_retrieve.py
 chris_oag/models/pacs_series.py
-chris_oag/models/pacs_series_patient_sex.py
+chris_oag/models/pacs_series_request.py
 chris_oag/models/paginated_comment_list.py
 chris_oag/models/paginated_compute_resource_list.py
 chris_oag/models/paginated_feed_group_permission_list.py
@@ -111,7 +117,11 @@ chris_oag/models/paginated_generic_parameter_list.py
 chris_oag/models/paginated_group_list.py
 chris_oag/models/paginated_group_user_list.py
 chris_oag/models/paginated_pacs_file_list.py
+chris_oag/models/paginated_pacs_list.py
+chris_oag/models/paginated_pacs_query_list.py
+chris_oag/models/paginated_pacs_retrieve_list.py
 chris_oag/models/paginated_pacs_series_list.py
+chris_oag/models/paginated_partial_plugin_instance_list.py
 chris_oag/models/paginated_pipeline_list.py
 chris_oag/models/paginated_pipeline_source_file_list.py
 chris_oag/models/paginated_plugin_admin_list.py
@@ -126,6 +136,7 @@ chris_oag/models/paginated_tagging_list.py
 chris_oag/models/paginated_user_file_list.py
 chris_oag/models/paginated_user_list.py
 chris_oag/models/paginated_workflow_list.py
+chris_oag/models/partial_plugin_instance.py
 chris_oag/models/path_parameter.py
 chris_oag/models/patient_sex_enum.py
 chris_oag/models/permission_enum.py
@@ -133,7 +144,6 @@ chris_oag/models/pipeline.py
 chris_oag/models/pipeline_custom_json.py
 chris_oag/models/pipeline_request.py
 chris_oag/models/pipeline_source_file.py
-chris_oag/models/pipeline_source_file_ftype.py
 chris_oag/models/pipeline_source_file_request.py
 chris_oag/models/plugin.py
 chris_oag/models/plugin_admin.py
@@ -142,13 +152,13 @@ chris_oag/models/plugin_instance.py
 chris_oag/models/plugin_instance_request.py
 chris_oag/models/plugin_instance_split.py
 chris_oag/models/plugin_instance_split_request.py
+chris_oag/models/plugin_instance_status.py
 chris_oag/models/plugin_meta.py
 chris_oag/models/plugin_parameter.py
 chris_oag/models/plugin_parameter_default.py
 chris_oag/models/plugin_parameter_type.py
 chris_oag/models/plugin_piping.py
 chris_oag/models/plugin_type.py
-chris_oag/models/status_enum.py
 chris_oag/models/str_parameter.py
 chris_oag/models/tag.py
 chris_oag/models/tag_request.py
@@ -185,6 +195,7 @@ docs/DefaultPipingIntParameter.md
 docs/DefaultPipingIntParameterRequest.md
 docs/DefaultPipingStrParameter.md
 docs/DefaultPipingStrParameterRequest.md
+docs/DeletionStatusEnum.md
 docs/DownloadtokensApi.md
 docs/Feed.md
 docs/FeedGroupPermission.md
@@ -228,10 +239,15 @@ docs/IntParameter.md
 docs/Note.md
 docs/NoteApi.md
 docs/NoteRequest.md
+docs/PACS.md
 docs/PACSFile.md
+docs/PACSQuery.md
+docs/PACSQueryRequest.md
+docs/PACSRetrieve.md
 docs/PACSSeries.md
-docs/PACSSeriesPatientSex.md
+docs/PACSSeriesRequest.md
 docs/PacsApi.md
+docs/PacsQueryStatus.md
 docs/PaginatedCommentList.md
 docs/PaginatedComputeResourceList.md
 docs/PaginatedFeedGroupPermissionList.md
@@ -252,7 +268,11 @@ docs/PaginatedGenericParameterList.md
 docs/PaginatedGroupList.md
 docs/PaginatedGroupUserList.md
 docs/PaginatedPACSFileList.md
+docs/PaginatedPACSList.md
+docs/PaginatedPACSQueryList.md
+docs/PaginatedPACSRetrieveList.md
 docs/PaginatedPACSSeriesList.md
+docs/PaginatedPartialPluginInstanceList.md
 docs/PaginatedPipelineList.md
 docs/PaginatedPipelineSourceFileList.md
 docs/PaginatedPluginAdminList.md
@@ -267,6 +287,7 @@ docs/PaginatedTaggingList.md
 docs/PaginatedUserFileList.md
 docs/PaginatedUserList.md
 docs/PaginatedWorkflowList.md
+docs/PartialPluginInstance.md
 docs/PathParameter.md
 docs/PatientSexEnum.md
 docs/PermissionEnum.md
@@ -274,7 +295,6 @@ docs/Pipeline.md
 docs/PipelineCustomJson.md
 docs/PipelineRequest.md
 docs/PipelineSourceFile.md
-docs/PipelineSourceFileFtype.md
 docs/PipelineSourceFileRequest.md
 docs/PipelinesApi.md
 docs/Plugin.md
@@ -284,6 +304,7 @@ docs/PluginInstance.md
 docs/PluginInstanceRequest.md
 docs/PluginInstanceSplit.md
 docs/PluginInstanceSplitRequest.md
+docs/PluginInstanceStatus.md
 docs/PluginMeta.md
 docs/PluginParameter.md
 docs/PluginParameterDefault.md
@@ -295,7 +316,6 @@ docs/PluginsApi.md
 docs/PublicfeedsApi.md
 docs/SchemaApi.md
 docs/SearchApi.md
-docs/StatusEnum.md
 docs/StrParameter.md
 docs/Tag.md
 docs/TagRequest.md
@@ -342,6 +362,7 @@ test/test_default_piping_int_parameter.py
 test/test_default_piping_int_parameter_request.py
 test/test_default_piping_str_parameter.py
 test/test_default_piping_str_parameter_request.py
+test/test_deletion_status_enum.py
 test/test_downloadtokens_api.py
 test/test_feed.py
 test/test_feed_group_permission.py
@@ -385,10 +406,15 @@ test/test_int_parameter.py
 test/test_note.py
 test/test_note_api.py
 test/test_note_request.py
+test/test_pacs.py
 test/test_pacs_api.py
 test/test_pacs_file.py
+test/test_pacs_query.py
+test/test_pacs_query_request.py
+test/test_pacs_query_status.py
+test/test_pacs_retrieve.py
 test/test_pacs_series.py
-test/test_pacs_series_patient_sex.py
+test/test_pacs_series_request.py
 test/test_paginated_comment_list.py
 test/test_paginated_compute_resource_list.py
 test/test_paginated_feed_group_permission_list.py
@@ -409,7 +435,11 @@ test/test_paginated_generic_parameter_list.py
 test/test_paginated_group_list.py
 test/test_paginated_group_user_list.py
 test/test_paginated_pacs_file_list.py
+test/test_paginated_pacs_list.py
+test/test_paginated_pacs_query_list.py
+test/test_paginated_pacs_retrieve_list.py
 test/test_paginated_pacs_series_list.py
+test/test_paginated_partial_plugin_instance_list.py
 test/test_paginated_pipeline_list.py
 test/test_paginated_pipeline_source_file_list.py
 test/test_paginated_plugin_admin_list.py
@@ -424,6 +454,7 @@ test/test_paginated_tagging_list.py
 test/test_paginated_user_file_list.py
 test/test_paginated_user_list.py
 test/test_paginated_workflow_list.py
+test/test_partial_plugin_instance.py
 test/test_path_parameter.py
 test/test_patient_sex_enum.py
 test/test_permission_enum.py
@@ -431,7 +462,6 @@ test/test_pipeline.py
 test/test_pipeline_custom_json.py
 test/test_pipeline_request.py
 test/test_pipeline_source_file.py
-test/test_pipeline_source_file_ftype.py
 test/test_pipeline_source_file_request.py
 test/test_pipelines_api.py
 test/test_plugin.py
@@ -441,6 +471,7 @@ test/test_plugin_instance.py
 test/test_plugin_instance_request.py
 test/test_plugin_instance_split.py
 test/test_plugin_instance_split_request.py
+test/test_plugin_instance_status.py
 test/test_plugin_meta.py
 test/test_plugin_parameter.py
 test/test_plugin_parameter_default.py
@@ -452,7 +483,6 @@ test/test_plugins_api.py
 test/test_publicfeeds_api.py
 test/test_schema_api.py
 test/test_search_api.py
-test/test_status_enum.py
 test/test_str_parameter.py
 test/test_tag.py
 test/test_tag_request.py

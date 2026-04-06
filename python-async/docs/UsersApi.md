@@ -14,8 +14,6 @@ Method | HTTP request | Description
 # **users_create**
 > User users_create(user_request)
 
-
-
 ### Example
 
 * Basic Authentication (basicAuth):
@@ -104,8 +102,6 @@ Name | Type | Description  | Notes
 
 # **users_groups_list**
 > PaginatedGroupList users_groups_list(id, limit=limit, offset=offset)
-
-
 
 A view for a user-specific collection of groups.
 
@@ -201,8 +197,6 @@ Name | Type | Description  | Notes
 # **users_list**
 > PaginatedUserList users_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 * Basic Authentication (basicAuth):
@@ -293,8 +287,6 @@ Name | Type | Description  | Notes
 # **users_retrieve**
 > User users_retrieve(id)
 
-
-
 ### Example
 
 * Basic Authentication (basicAuth):
@@ -382,8 +374,6 @@ Name | Type | Description  | Notes
 
 # **users_update**
 > User users_update(id, user_request)
-
-
 
 ### Example
 

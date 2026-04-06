@@ -1,11 +1,12 @@
 # PipelineSourceFileRequest
 
+A superclass for serializers of ``ChrisFile`` or similar.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fname** | **bytearray** |  | 
+**fname** | **bytes** |  | 
 **public** | **bool** |  | [optional] 
 **type** | **str** |  | [optional] 
 

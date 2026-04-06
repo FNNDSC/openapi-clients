@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
+**count** | **int** |  | 
 **next** | **str** |  | [optional] 
 **previous** | **str** |  | [optional] 
-**results** | [**List[GroupUser]**](GroupUser.md) |  | [optional] 
+**results** | [**List[GroupUser]**](GroupUser.md) |  | 
 
 ## Example
 

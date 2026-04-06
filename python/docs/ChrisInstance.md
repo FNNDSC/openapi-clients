@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **creation_date** | **datetime** |  | [readonly] 
 **name** | **str** |  | [optional] 
-**uuid** | **str** |  | [optional] 
+**uuid** | **UUID** |  | [optional] 
 **job_id_prefix** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 

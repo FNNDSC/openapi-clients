@@ -13,8 +13,6 @@ Method | HTTP request | Description
 # **downloadtokens_create**
 > FileDownloadToken downloadtokens_create(file_download_token_request=file_download_token_request)
 
-
-
 A view for the collection of user-specific file download tokens.
 
 ### Example
@@ -105,8 +103,6 @@ Name | Type | Description  | Notes
 
 # **downloadtokens_list**
 > PaginatedFileDownloadTokenList downloadtokens_list(limit=limit, offset=offset)
-
-
 
 A view for the collection of user-specific file download tokens.
 
@@ -200,8 +196,6 @@ Name | Type | Description  | Notes
 # **downloadtokens_retrieve**
 > FileDownloadToken downloadtokens_retrieve(id)
 
-
-
 A file download token view.
 
 ### Example
@@ -292,9 +286,8 @@ Name | Type | Description  | Notes
 # **downloadtokens_search_list**
 > PaginatedFileDownloadTokenList downloadtokens_search_list(id=id, limit=limit, offset=offset)
 
-
-
-A view for the collection of user-specific file download tokens resulting from a query search.
+A view for the collection of user-specific file download tokens resulting from a
+query search.
 
 ### Example
 

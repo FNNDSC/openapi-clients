@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **compute_url** | **str** |  | 
 **compute_auth_url** | **str** |  | [optional] 
-**compute_innetwork** | **bool** |  | [optional] 
 **compute_user** | **str** |  | 
 **compute_password** | **str** |  | 
 **compute_auth_token** | **str** |  | [optional] 

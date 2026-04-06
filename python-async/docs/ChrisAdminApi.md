@@ -18,9 +18,9 @@ Method | HTTP request | Description
 # **chris_admin_api_v1_computeresources_create**
 > ComputeResource chris_admin_api_v1_computeresources_create(compute_resource_request)
 
-
-
-A JSON view for the collection of compute resources that can be used by ChRIS admins to add a new compute resource through a REST API (alternative to the HTML-based admin site).
+A JSON view for the collection of compute resources that can be used by ChRIS admins
+to add a new compute resource through a REST API (alternative to the HTML-based admin
+site).
 
 ### Example
 
@@ -111,9 +111,8 @@ Name | Type | Description  | Notes
 # **chris_admin_api_v1_computeresources_destroy**
 > chris_admin_api_v1_computeresources_destroy(id)
 
-
-
-A JSON view for a compute resource that can be used by ChRIS admins to delete the compute resource through a REST API.
+A JSON view for a compute resource that can be used by ChRIS admins to delete the
+compute resource through a REST API.
 
 ### Example
 
@@ -200,9 +199,9 @@ void (empty response body)
 # **chris_admin_api_v1_computeresources_list**
 > PaginatedComputeResourceList chris_admin_api_v1_computeresources_list(limit=limit, offset=offset)
 
-
-
-A JSON view for the collection of compute resources that can be used by ChRIS admins to add a new compute resource through a REST API (alternative to the HTML-based admin site).
+A JSON view for the collection of compute resources that can be used by ChRIS admins
+to add a new compute resource through a REST API (alternative to the HTML-based admin
+site).
 
 ### Example
 
@@ -294,9 +293,8 @@ Name | Type | Description  | Notes
 # **chris_admin_api_v1_computeresources_retrieve**
 > ComputeResource chris_admin_api_v1_computeresources_retrieve(id)
 
-
-
-A JSON view for a compute resource that can be used by ChRIS admins to delete the compute resource through a REST API.
+A JSON view for a compute resource that can be used by ChRIS admins to delete the
+compute resource through a REST API.
 
 ### Example
 
@@ -386,9 +384,8 @@ Name | Type | Description  | Notes
 # **chris_admin_api_v1_create**
 > PluginAdmin chris_admin_api_v1_create(plugin_admin_request)
 
-
-
-A JSON view for the collection of plugins that can be used by ChRIS admins to register plugins through a REST API (alternative to the HTML-based admin site).
+A JSON view for the collection of plugins that can be used by ChRIS admins to
+register plugins through a REST API (alternative to the HTML-based admin site).
 
 ### Example
 
@@ -479,9 +476,8 @@ Name | Type | Description  | Notes
 # **chris_admin_api_v1_destroy**
 > chris_admin_api_v1_destroy(id)
 
-
-
-A JSON view for a plugin that can be used by ChRIS admins to delete the plugin through a REST API.
+A JSON view for a plugin that can be used by ChRIS admins to delete the plugin
+through a REST API.
 
 ### Example
 
@@ -568,9 +564,8 @@ void (empty response body)
 # **chris_admin_api_v1_list**
 > PaginatedPluginAdminList chris_admin_api_v1_list(limit=limit, offset=offset)
 
-
-
-A JSON view for the collection of plugins that can be used by ChRIS admins to register plugins through a REST API (alternative to the HTML-based admin site).
+A JSON view for the collection of plugins that can be used by ChRIS admins to
+register plugins through a REST API (alternative to the HTML-based admin site).
 
 ### Example
 
@@ -662,9 +657,8 @@ Name | Type | Description  | Notes
 # **chris_admin_api_v1_retrieve**
 > PluginAdmin chris_admin_api_v1_retrieve(id)
 
-
-
-A JSON view for a plugin that can be used by ChRIS admins to delete the plugin through a REST API.
+A JSON view for a plugin that can be used by ChRIS admins to delete the plugin
+through a REST API.
 
 ### Example
 
@@ -754,9 +748,8 @@ Name | Type | Description  | Notes
 # **chris_admin_api_v1_update**
 > PluginAdmin chris_admin_api_v1_update(id, plugin_admin_request)
 
-
-
-A JSON view for a plugin that can be used by ChRIS admins to delete the plugin through a REST API.
+A JSON view for a plugin that can be used by ChRIS admins to delete the plugin
+through a REST API.
 
 ### Example
 

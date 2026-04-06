@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **url** | **str** |  | [readonly] 
 **id** | **int** |  | [readonly] 
-**name** | **str** |  | 
+**name** | **str** |  | [optional] 
 **locked** | **bool** |  | [optional] 
 **authors** | **str** |  | [optional] 
 **category** | **str** |  | [optional] 

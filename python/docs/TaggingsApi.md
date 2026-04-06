@@ -13,8 +13,6 @@ Method | HTTP request | Description
 # **taggings_create**
 > Tagging taggings_create(id)
 
-
-
 A view for the feed-specific collection of taggings.
 
 ### Example
@@ -105,8 +103,6 @@ Name | Type | Description  | Notes
 # **taggings_destroy**
 > taggings_destroy(id)
 
-
-
 A tagging view.
 
 ### Example
@@ -193,8 +189,6 @@ void (empty response body)
 
 # **taggings_list**
 > PaginatedTaggingList taggings_list(id, limit=limit, offset=offset)
-
-
 
 A view for the feed-specific collection of taggings.
 
@@ -289,8 +283,6 @@ Name | Type | Description  | Notes
 
 # **taggings_retrieve**
 > Tagging taggings_retrieve(id)
-
-
 
 A tagging view.
 

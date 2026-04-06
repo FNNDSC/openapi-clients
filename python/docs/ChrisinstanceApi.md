@@ -10,8 +10,6 @@ Method | HTTP request | Description
 # **chrisinstance_retrieve**
 > ChrisInstance chrisinstance_retrieve(id)
 
-
-
 A compute resource view.
 
 ### Example

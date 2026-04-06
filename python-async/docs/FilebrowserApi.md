@@ -62,8 +62,6 @@ Method | HTTP request | Description
 # **filebrowser_children_list**
 > PaginatedFileBrowserFolderList filebrowser_children_list(id, limit=limit, offset=offset)
 
-
-
 A view for the collection of folders that are the children of this folder.
 
 ### Example
@@ -158,9 +156,8 @@ Name | Type | Description  | Notes
 # **filebrowser_create**
 > FileBrowserFolder filebrowser_create(file_browser_folder_request=file_browser_folder_request)
 
-
-
-A view for the initial page of the collection of file browser folders. The returned collection only has a single element.
+A view for the initial page of the collection of file browser folders. The returned
+collection only has a single element.
 
 ### Example
 
@@ -251,8 +248,6 @@ Name | Type | Description  | Notes
 # **filebrowser_destroy**
 > filebrowser_destroy(id)
 
-
-
 A ChRIS folder view.
 
 ### Example
@@ -340,8 +335,6 @@ void (empty response body)
 # **filebrowser_files_destroy**
 > filebrowser_files_destroy(id)
 
-
-
 A ChRIS file view.
 
 ### Example
@@ -428,8 +421,6 @@ void (empty response body)
 
 # **filebrowser_files_grouppermissions_create**
 > FileBrowserFileGroupPermission filebrowser_files_grouppermissions_create(id, file_browser_file_group_permission_request=file_browser_file_group_permission_request)
-
-
 
 A view for a file's collection of group permissions.
 
@@ -524,8 +515,6 @@ Name | Type | Description  | Notes
 # **filebrowser_files_grouppermissions_destroy**
 > filebrowser_files_grouppermissions_destroy(id)
 
-
-
 A view for a file's group permission.
 
 ### Example
@@ -612,8 +601,6 @@ void (empty response body)
 
 # **filebrowser_files_grouppermissions_list**
 > PaginatedFileBrowserFileGroupPermissionList filebrowser_files_grouppermissions_list(id, limit=limit, offset=offset)
-
-
 
 A view for a file's collection of group permissions.
 
@@ -709,8 +696,6 @@ Name | Type | Description  | Notes
 # **filebrowser_files_grouppermissions_retrieve**
 > FileBrowserFileGroupPermission filebrowser_files_grouppermissions_retrieve(id)
 
-
-
 A view for a file's group permission.
 
 ### Example
@@ -801,9 +786,8 @@ Name | Type | Description  | Notes
 # **filebrowser_files_grouppermissions_search_list**
 > PaginatedFileBrowserFileGroupPermissionList filebrowser_files_grouppermissions_search_list(id, group_name=group_name, id2=id2, limit=limit, offset=offset)
 
-
-
-A view for the collection of file-specific group permissions resulting from a query search.
+A view for the collection of file-specific group permissions resulting from a query
+search.
 
 ### Example
 
@@ -901,8 +885,6 @@ Name | Type | Description  | Notes
 # **filebrowser_files_grouppermissions_update**
 > FileBrowserFileGroupPermission filebrowser_files_grouppermissions_update(id, file_browser_file_group_permission_request=file_browser_file_group_permission_request)
 
-
-
 A view for a file's group permission.
 
 ### Example
@@ -995,8 +977,6 @@ Name | Type | Description  | Notes
 
 # **filebrowser_files_list**
 > PaginatedFileBrowserFileList filebrowser_files_list(id, limit=limit, offset=offset)
-
-
 
 A view for the collection of all the files directly under this folder.
 
@@ -1092,8 +1072,6 @@ Name | Type | Description  | Notes
 # **filebrowser_files_retrieve**
 > FileBrowserFile filebrowser_files_retrieve(id)
 
-
-
 A ChRIS file view.
 
 ### Example
@@ -1182,9 +1160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **filebrowser_files_retrieve_0**
-> bytearray filebrowser_files_retrieve_0(id)
-
-
+> bytes filebrowser_files_retrieve_0(id)
 
 Overriden to be able to make a GET request to an actual file resource.
 
@@ -1253,7 +1229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bytearray**
+**bytes**
 
 ### Authorization
 
@@ -1274,8 +1250,6 @@ Name | Type | Description  | Notes
 
 # **filebrowser_files_update**
 > FileBrowserFile filebrowser_files_update(id, file_browser_file_request=file_browser_file_request)
-
-
 
 A ChRIS file view.
 
@@ -1370,8 +1344,6 @@ Name | Type | Description  | Notes
 # **filebrowser_files_userpermissions_create**
 > FileBrowserFileUserPermission filebrowser_files_userpermissions_create(id, file_browser_file_user_permission_request=file_browser_file_user_permission_request)
 
-
-
 A view for a file's collection of user permissions.
 
 ### Example
@@ -1465,8 +1437,6 @@ Name | Type | Description  | Notes
 # **filebrowser_files_userpermissions_destroy**
 > filebrowser_files_userpermissions_destroy(id)
 
-
-
 A view for a file's user permission.
 
 ### Example
@@ -1553,8 +1523,6 @@ void (empty response body)
 
 # **filebrowser_files_userpermissions_list**
 > PaginatedFileBrowserFileUserPermissionList filebrowser_files_userpermissions_list(id, limit=limit, offset=offset)
-
-
 
 A view for a file's collection of user permissions.
 
@@ -1650,8 +1618,6 @@ Name | Type | Description  | Notes
 # **filebrowser_files_userpermissions_retrieve**
 > FileBrowserFileUserPermission filebrowser_files_userpermissions_retrieve(id)
 
-
-
 A view for a file's user permission.
 
 ### Example
@@ -1742,9 +1708,8 @@ Name | Type | Description  | Notes
 # **filebrowser_files_userpermissions_search_list**
 > PaginatedFileBrowserFileUserPermissionList filebrowser_files_userpermissions_search_list(id, id2=id2, limit=limit, offset=offset, username=username)
 
-
-
-A view for the collection of file-specific user permissions resulting from a query search.
+A view for the collection of file-specific user permissions resulting from a query
+search.
 
 ### Example
 
@@ -1842,8 +1807,6 @@ Name | Type | Description  | Notes
 # **filebrowser_files_userpermissions_update**
 > FileBrowserFileUserPermission filebrowser_files_userpermissions_update(id, file_browser_file_user_permission_request=file_browser_file_user_permission_request)
 
-
-
 A view for a file's user permission.
 
 ### Example
@@ -1936,8 +1899,6 @@ Name | Type | Description  | Notes
 
 # **filebrowser_grouppermissions_create**
 > FileBrowserFolderGroupPermission filebrowser_grouppermissions_create(id, file_browser_folder_group_permission_request=file_browser_folder_group_permission_request)
-
-
 
 A view for a folder's collection of group permissions.
 
@@ -2032,8 +1993,6 @@ Name | Type | Description  | Notes
 # **filebrowser_grouppermissions_destroy**
 > filebrowser_grouppermissions_destroy(id)
 
-
-
 A view for a folder's group permission.
 
 ### Example
@@ -2120,8 +2079,6 @@ void (empty response body)
 
 # **filebrowser_grouppermissions_list**
 > PaginatedFileBrowserFolderGroupPermissionList filebrowser_grouppermissions_list(id, limit=limit, offset=offset)
-
-
 
 A view for a folder's collection of group permissions.
 
@@ -2217,8 +2174,6 @@ Name | Type | Description  | Notes
 # **filebrowser_grouppermissions_retrieve**
 > FileBrowserFolderGroupPermission filebrowser_grouppermissions_retrieve(id)
 
-
-
 A view for a folder's group permission.
 
 ### Example
@@ -2309,9 +2264,8 @@ Name | Type | Description  | Notes
 # **filebrowser_grouppermissions_search_list**
 > PaginatedFileBrowserFolderGroupPermissionList filebrowser_grouppermissions_search_list(id, group_name=group_name, id2=id2, limit=limit, offset=offset)
 
-
-
-A view for the collection of folder-specific group permissions resulting from a query search.
+A view for the collection of folder-specific group permissions resulting from a query
+search.
 
 ### Example
 
@@ -2409,8 +2363,6 @@ Name | Type | Description  | Notes
 # **filebrowser_grouppermissions_update**
 > FileBrowserFolderGroupPermission filebrowser_grouppermissions_update(id, file_browser_folder_group_permission_request=file_browser_folder_group_permission_request)
 
-
-
 A view for a folder's group permission.
 
 ### Example
@@ -2504,8 +2456,6 @@ Name | Type | Description  | Notes
 # **filebrowser_linkfiles_destroy**
 > filebrowser_linkfiles_destroy(id)
 
-
-
 A ChRIS link file view.
 
 ### Example
@@ -2592,8 +2542,6 @@ void (empty response body)
 
 # **filebrowser_linkfiles_grouppermissions_create**
 > FileBrowserLinkFileGroupPermission filebrowser_linkfiles_grouppermissions_create(id, file_browser_link_file_group_permission_request=file_browser_link_file_group_permission_request)
-
-
 
 A view for a link file's collection of group permissions.
 
@@ -2688,8 +2636,6 @@ Name | Type | Description  | Notes
 # **filebrowser_linkfiles_grouppermissions_destroy**
 > filebrowser_linkfiles_grouppermissions_destroy(id)
 
-
-
 A view for a link file's group permission.
 
 ### Example
@@ -2776,8 +2722,6 @@ void (empty response body)
 
 # **filebrowser_linkfiles_grouppermissions_list**
 > PaginatedFileBrowserLinkFileGroupPermissionList filebrowser_linkfiles_grouppermissions_list(id, limit=limit, offset=offset)
-
-
 
 A view for a link file's collection of group permissions.
 
@@ -2873,8 +2817,6 @@ Name | Type | Description  | Notes
 # **filebrowser_linkfiles_grouppermissions_retrieve**
 > FileBrowserLinkFileGroupPermission filebrowser_linkfiles_grouppermissions_retrieve(id)
 
-
-
 A view for a link file's group permission.
 
 ### Example
@@ -2965,9 +2907,8 @@ Name | Type | Description  | Notes
 # **filebrowser_linkfiles_grouppermissions_search_list**
 > PaginatedFileBrowserLinkFileGroupPermissionList filebrowser_linkfiles_grouppermissions_search_list(id, group_name=group_name, id2=id2, limit=limit, offset=offset)
 
-
-
-A view for the collection of link file-specific group permissions resulting from a query search.
+A view for the collection of link file-specific group permissions resulting from a
+query search.
 
 ### Example
 
@@ -3065,8 +3006,6 @@ Name | Type | Description  | Notes
 # **filebrowser_linkfiles_grouppermissions_update**
 > FileBrowserLinkFileGroupPermission filebrowser_linkfiles_grouppermissions_update(id, file_browser_link_file_group_permission_request=file_browser_link_file_group_permission_request)
 
-
-
 A view for a link file's group permission.
 
 ### Example
@@ -3159,8 +3098,6 @@ Name | Type | Description  | Notes
 
 # **filebrowser_linkfiles_list**
 > PaginatedFileBrowserLinkFileList filebrowser_linkfiles_list(id, limit=limit, offset=offset)
-
-
 
 A view for the collection of all the ChRIS link files directly under this folder.
 
@@ -3256,8 +3193,6 @@ Name | Type | Description  | Notes
 # **filebrowser_linkfiles_retrieve**
 > FileBrowserLinkFile filebrowser_linkfiles_retrieve(id)
 
-
-
 A ChRIS link file view.
 
 ### Example
@@ -3346,9 +3281,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **filebrowser_linkfiles_retrieve_0**
-> bytearray filebrowser_linkfiles_retrieve_0(id)
-
-
+> bytes filebrowser_linkfiles_retrieve_0(id)
 
 Overriden to be able to make a GET request to an actual file resource.
 
@@ -3417,7 +3350,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bytearray**
+**bytes**
 
 ### Authorization
 
@@ -3438,8 +3371,6 @@ Name | Type | Description  | Notes
 
 # **filebrowser_linkfiles_update**
 > FileBrowserLinkFile filebrowser_linkfiles_update(id, file_browser_link_file_request=file_browser_link_file_request)
-
-
 
 A ChRIS link file view.
 
@@ -3534,8 +3465,6 @@ Name | Type | Description  | Notes
 # **filebrowser_linkfiles_userpermissions_create**
 > FileBrowserLinkFileUserPermission filebrowser_linkfiles_userpermissions_create(id, file_browser_link_file_user_permission_request=file_browser_link_file_user_permission_request)
 
-
-
 A view for a link file's collection of user permissions.
 
 ### Example
@@ -3629,8 +3558,6 @@ Name | Type | Description  | Notes
 # **filebrowser_linkfiles_userpermissions_destroy**
 > filebrowser_linkfiles_userpermissions_destroy(id)
 
-
-
 A view for a link file's user permission.
 
 ### Example
@@ -3717,8 +3644,6 @@ void (empty response body)
 
 # **filebrowser_linkfiles_userpermissions_list**
 > PaginatedFileBrowserLinkFileUserPermissionList filebrowser_linkfiles_userpermissions_list(id, limit=limit, offset=offset)
-
-
 
 A view for a link file's collection of user permissions.
 
@@ -3814,8 +3739,6 @@ Name | Type | Description  | Notes
 # **filebrowser_linkfiles_userpermissions_retrieve**
 > FileBrowserLinkFileUserPermission filebrowser_linkfiles_userpermissions_retrieve(id)
 
-
-
 A view for a link file's user permission.
 
 ### Example
@@ -3906,9 +3829,8 @@ Name | Type | Description  | Notes
 # **filebrowser_linkfiles_userpermissions_search_list**
 > PaginatedFileBrowserLinkFileUserPermissionList filebrowser_linkfiles_userpermissions_search_list(id, id2=id2, limit=limit, offset=offset, username=username)
 
-
-
-A view for the collection of link file-specific user permissions resulting from a query search.
+A view for the collection of link file-specific user permissions resulting from a
+query search.
 
 ### Example
 
@@ -4006,8 +3928,6 @@ Name | Type | Description  | Notes
 # **filebrowser_linkfiles_userpermissions_update**
 > FileBrowserLinkFileUserPermission filebrowser_linkfiles_userpermissions_update(id, file_browser_link_file_user_permission_request=file_browser_link_file_user_permission_request)
 
-
-
 A view for a link file's user permission.
 
 ### Example
@@ -4101,9 +4021,8 @@ Name | Type | Description  | Notes
 # **filebrowser_list**
 > PaginatedFileBrowserFolderList filebrowser_list(limit=limit, offset=offset)
 
-
-
-A view for the initial page of the collection of file browser folders. The returned collection only has a single element.
+A view for the initial page of the collection of file browser folders. The returned
+collection only has a single element.
 
 ### Example
 
@@ -4195,8 +4114,6 @@ Name | Type | Description  | Notes
 # **filebrowser_retrieve**
 > FileBrowserFolder filebrowser_retrieve(id)
 
-
-
 A ChRIS folder view.
 
 ### Example
@@ -4287,9 +4204,8 @@ Name | Type | Description  | Notes
 # **filebrowser_search_list**
 > PaginatedFileBrowserFolderList filebrowser_search_list(limit=limit, offset=offset)
 
-
-
-A view for the collection of file browser folders resulting from a query search. The returned collection only has at most one element.
+A view for the collection of file browser folders resulting from a query search.
+The returned collection only has at most one element.
 
 ### Example
 
@@ -4380,8 +4296,6 @@ Name | Type | Description  | Notes
 
 # **filebrowser_update**
 > FileBrowserFolder filebrowser_update(id, file_browser_folder_request=file_browser_folder_request)
-
-
 
 A ChRIS folder view.
 
@@ -4476,8 +4390,6 @@ Name | Type | Description  | Notes
 # **filebrowser_userpermissions_create**
 > FileBrowserFolderUserPermission filebrowser_userpermissions_create(id, file_browser_folder_user_permission_request=file_browser_folder_user_permission_request)
 
-
-
 A view for a folder's collection of user permissions.
 
 ### Example
@@ -4571,8 +4483,6 @@ Name | Type | Description  | Notes
 # **filebrowser_userpermissions_destroy**
 > filebrowser_userpermissions_destroy(id)
 
-
-
 A view for a folder's user permission.
 
 ### Example
@@ -4659,8 +4569,6 @@ void (empty response body)
 
 # **filebrowser_userpermissions_list**
 > PaginatedFileBrowserFolderUserPermissionList filebrowser_userpermissions_list(id, limit=limit, offset=offset)
-
-
 
 A view for a folder's collection of user permissions.
 
@@ -4756,8 +4664,6 @@ Name | Type | Description  | Notes
 # **filebrowser_userpermissions_retrieve**
 > FileBrowserFolderUserPermission filebrowser_userpermissions_retrieve(id)
 
-
-
 A view for a folder's user permission.
 
 ### Example
@@ -4848,9 +4754,8 @@ Name | Type | Description  | Notes
 # **filebrowser_userpermissions_search_list**
 > PaginatedFileBrowserFolderUserPermissionList filebrowser_userpermissions_search_list(id, id2=id2, limit=limit, offset=offset, username=username)
 
-
-
-A view for the collection of folder-specific user permissions resulting from a query search.
+A view for the collection of folder-specific user permissions resulting from a query
+search.
 
 ### Example
 
@@ -4947,8 +4852,6 @@ Name | Type | Description  | Notes
 
 # **filebrowser_userpermissions_update**
 > FileBrowserFolderUserPermission filebrowser_userpermissions_update(id, file_browser_folder_user_permission_request=file_browser_folder_user_permission_request)
-
-
 
 A view for a folder's user permission.
 

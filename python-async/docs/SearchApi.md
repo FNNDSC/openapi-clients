@@ -8,9 +8,7 @@ Method | HTTP request | Description
 
 
 # **search_list**
-> PaginatedFeedList search_list(files_fname_icontains=files_fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, max_id=max_id, min_creation_date=min_creation_date, min_id=min_id, name=name, name_exact=name_exact, name_startswith=name_startswith, offset=offset)
-
-
+> PaginatedFeedList search_list(deletion_status=deletion_status, files_fname_icontains=files_fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, max_id=max_id, min_creation_date=min_creation_date, min_id=min_id, name=name, name_exact=name_exact, name_startswith=name_startswith, offset=offset)
 
 A view for the collection of feeds resulting from a query search.
 
@@ -59,6 +57,7 @@ configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
 async with aiochris_oag.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = aiochris_oag.SearchApi(api_client)
+    deletion_status = 'deletion_status_example' # str | * `inactive` - Inactive * `pending` - Pending * `failed` - Failed (optional)
     files_fname_icontains = 'files_fname_icontains_example' # str |  (optional)
     id = 56 # int |  (optional)
     limit = 56 # int | Number of results to return per page. (optional)
@@ -72,7 +71,7 @@ async with aiochris_oag.ApiClient(configuration) as api_client:
     offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = await api_instance.search_list(files_fname_icontains=files_fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, max_id=max_id, min_creation_date=min_creation_date, min_id=min_id, name=name, name_exact=name_exact, name_startswith=name_startswith, offset=offset)
+        api_response = await api_instance.search_list(deletion_status=deletion_status, files_fname_icontains=files_fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, max_id=max_id, min_creation_date=min_creation_date, min_id=min_id, name=name, name_exact=name_exact, name_startswith=name_startswith, offset=offset)
         print("The response of SearchApi->search_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -86,6 +85,7 @@ async with aiochris_oag.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **deletion_status** | **str**| * &#x60;inactive&#x60; - Inactive * &#x60;pending&#x60; - Pending * &#x60;failed&#x60; - Failed | [optional] 
  **files_fname_icontains** | **str**|  | [optional] 
  **id** | **int**|  | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 

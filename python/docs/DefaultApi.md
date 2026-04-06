@@ -13,8 +13,6 @@ Method | HTTP request | Description
 # **root_destroy**
 > root_destroy(id)
 
-
-
 A feed view.
 
 ### Example
@@ -102,9 +100,7 @@ void (empty response body)
 # **root_list**
 > PaginatedFeedList root_list(limit=limit, offset=offset)
 
-
-
-A view for the collection of feeds. This is also the API's \"homepage\".
+A view for the collection of feeds. This is also the API's "homepage".
 
 ### Example
 
@@ -196,8 +192,6 @@ Name | Type | Description  | Notes
 # **root_retrieve**
 > Feed root_retrieve(id)
 
-
-
 A feed view.
 
 ### Example
@@ -287,8 +281,6 @@ Name | Type | Description  | Notes
 
 # **root_update**
 > Feed root_update(id, feed_request=feed_request)
-
-
 
 A feed view.
 

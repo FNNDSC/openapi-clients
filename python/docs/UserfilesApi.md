@@ -14,9 +14,7 @@ Method | HTTP request | Description
 
 
 # **userfiles_create**
-> UserFile userfiles_create(user_file_request=user_file_request)
-
-
+> UserFile userfiles_create(upload_path=upload_path, fname=fname, public=public)
 
 A view for the collection of user files.
 
@@ -29,7 +27,6 @@ A view for the collection of user files.
 ```python
 import chris_oag
 from chris_oag.models.user_file import UserFile
-from chris_oag.models.user_file_request import UserFileRequest
 from chris_oag.rest import ApiException
 from pprint import pprint
 
@@ -66,10 +63,12 @@ configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
 with chris_oag.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = chris_oag.UserfilesApi(api_client)
-    user_file_request = chris_oag.UserFileRequest() # UserFileRequest |  (optional)
+    upload_path = 'upload_path_example' # str |  (optional)
+    fname = None # bytes |  (optional)
+    public = True # bool |  (optional)
 
     try:
-        api_response = api_instance.userfiles_create(user_file_request=user_file_request)
+        api_response = api_instance.userfiles_create(upload_path=upload_path, fname=fname, public=public)
         print("The response of UserfilesApi->userfiles_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -83,7 +82,9 @@ with chris_oag.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_file_request** | [**UserFileRequest**](UserFileRequest.md)|  | [optional] 
+ **upload_path** | **str**|  | [optional] 
+ **fname** | **bytes**|  | [optional] 
+ **public** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -95,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -108,8 +109,6 @@ Name | Type | Description  | Notes
 
 # **userfiles_destroy**
 > userfiles_destroy(id)
-
-
 
 A user file view.
 
@@ -197,8 +196,6 @@ void (empty response body)
 
 # **userfiles_list**
 > PaginatedUserFileList userfiles_list(limit=limit, offset=offset)
-
-
 
 A view for the collection of user files.
 
@@ -292,8 +289,6 @@ Name | Type | Description  | Notes
 # **userfiles_retrieve**
 > UserFile userfiles_retrieve(id)
 
-
-
 A user file view.
 
 ### Example
@@ -382,9 +377,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **userfiles_retrieve_0**
-> bytearray userfiles_retrieve_0(id)
-
-
+> bytes userfiles_retrieve_0(id)
 
 Overriden to be able to make a GET request to an actual file resource.
 
@@ -453,7 +446,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bytearray**
+**bytes**
 
 ### Authorization
 
@@ -474,8 +467,6 @@ Name | Type | Description  | Notes
 
 # **userfiles_search_list**
 > PaginatedUserFileList userfiles_search_list(fname=fname, fname_exact=fname_exact, fname_icontains=fname_icontains, fname_icontains_multiple=fname_icontains_multiple, fname_nslashes=fname_nslashes, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, offset=offset, owner_username=owner_username)
-
-
 
 A view for the collection of user files resulting from a query search.
 
@@ -586,8 +577,6 @@ Name | Type | Description  | Notes
 
 # **userfiles_update**
 > UserFile userfiles_update(id, user_file_request=user_file_request)
-
-
 
 A user file view.
 

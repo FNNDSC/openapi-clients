@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **publicfeeds_list**
 > PaginatedFeedList publicfeeds_list(limit=limit, offset=offset)
 
-
-
 A view for the collection of public feeds.
 
 ### Example
@@ -103,9 +101,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **publicfeeds_search_list**
-> PaginatedFeedList publicfeeds_search_list(files_fname_icontains=files_fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, max_id=max_id, min_creation_date=min_creation_date, min_id=min_id, name=name, name_exact=name_exact, name_startswith=name_startswith, offset=offset)
-
-
+> PaginatedFeedList publicfeeds_search_list(deletion_status=deletion_status, files_fname_icontains=files_fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, max_id=max_id, min_creation_date=min_creation_date, min_id=min_id, name=name, name_exact=name_exact, name_startswith=name_startswith, offset=offset)
 
 A view for the collection of public feeds resulting from a query search.
 
@@ -154,6 +150,7 @@ configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
 with chris_oag.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = chris_oag.PublicfeedsApi(api_client)
+    deletion_status = 'deletion_status_example' # str | * `inactive` - Inactive * `pending` - Pending * `failed` - Failed (optional)
     files_fname_icontains = 'files_fname_icontains_example' # str |  (optional)
     id = 56 # int |  (optional)
     limit = 56 # int | Number of results to return per page. (optional)
@@ -167,7 +164,7 @@ with chris_oag.ApiClient(configuration) as api_client:
     offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.publicfeeds_search_list(files_fname_icontains=files_fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, max_id=max_id, min_creation_date=min_creation_date, min_id=min_id, name=name, name_exact=name_exact, name_startswith=name_startswith, offset=offset)
+        api_response = api_instance.publicfeeds_search_list(deletion_status=deletion_status, files_fname_icontains=files_fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, max_id=max_id, min_creation_date=min_creation_date, min_id=min_id, name=name, name_exact=name_exact, name_startswith=name_startswith, offset=offset)
         print("The response of PublicfeedsApi->publicfeeds_search_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -181,6 +178,7 @@ with chris_oag.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **deletion_status** | **str**| * &#x60;inactive&#x60; - Inactive * &#x60;pending&#x60; - Pending * &#x60;failed&#x60; - Failed | [optional] 
  **files_fname_icontains** | **str**|  | [optional] 
  **id** | **int**|  | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 

@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
+**count** | **int** |  | 
 **next** | **str** |  | [optional] 
 **previous** | **str** |  | [optional] 
-**results** | [**List[GenericParameter]**](GenericParameter.md) |  | [optional] 
+**results** | [**List[GenericParameter]**](GenericParameter.md) |  | 
 
 ## Example
 

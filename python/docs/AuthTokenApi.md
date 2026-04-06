@@ -10,8 +10,6 @@ Method | HTTP request | Description
 # **auth_token_create**
 > AuthToken auth_token_create(username, password)
 
-
-
 ### Example
 
 * Basic Authentication (basicAuth):

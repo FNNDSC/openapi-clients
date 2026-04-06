@@ -19,9 +19,8 @@ Method | HTTP request | Description
 # **groups_create**
 > Group groups_create(group_request)
 
-
-
-A view for the collection of groups that can be used by ChRIS admins to add a new group through a REST API (alternative to the HTML-based admin site).
+A view for the collection of groups that can be used by ChRIS admins to add a new
+group through a REST API (alternative to the HTML-based admin site).
 
 ### Example
 
@@ -112,9 +111,8 @@ Name | Type | Description  | Notes
 # **groups_destroy**
 > groups_destroy(id)
 
-
-
-A view for a group that can be used by ChRIS admins to delete the group through a REST API.
+A view for a group that can be used by ChRIS admins to delete the
+group through a REST API.
 
 ### Example
 
@@ -201,9 +199,8 @@ void (empty response body)
 # **groups_list**
 > PaginatedGroupList groups_list(limit=limit, offset=offset)
 
-
-
-A view for the collection of groups that can be used by ChRIS admins to add a new group through a REST API (alternative to the HTML-based admin site).
+A view for the collection of groups that can be used by ChRIS admins to add a new
+group through a REST API (alternative to the HTML-based admin site).
 
 ### Example
 
@@ -295,9 +292,8 @@ Name | Type | Description  | Notes
 # **groups_retrieve**
 > Group groups_retrieve(id)
 
-
-
-A view for a group that can be used by ChRIS admins to delete the group through a REST API.
+A view for a group that can be used by ChRIS admins to delete the
+group through a REST API.
 
 ### Example
 
@@ -386,8 +382,6 @@ Name | Type | Description  | Notes
 
 # **groups_search_list**
 > PaginatedGroupList groups_search_list(id=id, limit=limit, name=name, name_icontains=name_icontains, offset=offset)
-
-
 
 A view for the collection of groups resulting from a query search.
 
@@ -487,8 +481,6 @@ Name | Type | Description  | Notes
 # **groups_users_create**
 > GroupUser groups_users_create(id, group_user_request)
 
-
-
 A view for a group-specific collection of group users.
 
 ### Example
@@ -582,9 +574,8 @@ Name | Type | Description  | Notes
 # **groups_users_destroy**
 > groups_users_destroy(id)
 
-
-
-A view for a group-user relationship that can be used by ChRIS admins to delete a user from a group through a REST API.
+A view for a group-user relationship that can be used by ChRIS admins to delete
+a user from a group through a REST API.
 
 ### Example
 
@@ -670,8 +661,6 @@ void (empty response body)
 
 # **groups_users_list**
 > PaginatedGroupUserList groups_users_list(id, limit=limit, offset=offset)
-
-
 
 A view for a group-specific collection of group users.
 
@@ -767,9 +756,8 @@ Name | Type | Description  | Notes
 # **groups_users_retrieve**
 > GroupUser groups_users_retrieve(id)
 
-
-
-A view for a group-user relationship that can be used by ChRIS admins to delete a user from a group through a REST API.
+A view for a group-user relationship that can be used by ChRIS admins to delete
+a user from a group through a REST API.
 
 ### Example
 
@@ -859,9 +847,8 @@ Name | Type | Description  | Notes
 # **groups_users_search_list**
 > PaginatedGroupUserList groups_users_search_list(id, id2=id2, limit=limit, offset=offset, username=username)
 
-
-
-A view for the collection of group users resulting from a query search.
+A view for the collection of group users resulting from a query
+search.
 
 ### Example
 

@@ -8,11 +8,12 @@ Name | Type | Description | Notes
 **url** | **str** |  | [readonly] 
 **id** | **int** |  | [readonly] 
 **creation_date** | **datetime** |  | [readonly] 
+**folder_path** | **str** |  | [readonly] 
 **patient_id** | **str** |  | 
 **patient_name** | **str** |  | [optional] 
 **patient_birth_date** | **date** |  | [optional] 
 **patient_age** | **int** |  | [optional] 
-**patient_sex** | [**PACSSeriesPatientSex**](PACSSeriesPatientSex.md) |  | [optional] 
+**patient_sex** | **str** |  | [optional] 
 **study_date** | **date** |  | 
 **accession_number** | **str** |  | [optional] 
 **modality** | **str** |  | [optional] 
@@ -22,6 +23,9 @@ Name | Type | Description | Notes
 **series_instance_uid** | **str** |  | 
 **series_description** | **str** |  | [optional] 
 **pacs_identifier** | **str** |  | [readonly] 
+**deletion_status** | [**DeletionStatusEnum**](DeletionStatusEnum.md) |  | [optional] 
+**deletion_requested_at** | **datetime** |  | [optional] 
+**deletion_error** | **str** |  | [optional] 
 **folder** | **str** |  | [readonly] 
 
 ## Example

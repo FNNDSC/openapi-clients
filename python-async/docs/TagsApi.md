@@ -19,8 +19,6 @@ Method | HTTP request | Description
 # **feed_tags_list**
 > PaginatedTagList feed_tags_list(id, limit=limit, offset=offset)
 
-
-
 A view for a feed-specific collection of user-specific tags.
 
 ### Example
@@ -115,8 +113,6 @@ Name | Type | Description  | Notes
 # **tags_create**
 > Tag tags_create(tag_request)
 
-
-
 A view for the collection of tags.
 
 ### Example
@@ -208,8 +204,6 @@ Name | Type | Description  | Notes
 # **tags_destroy**
 > tags_destroy(id)
 
-
-
 A tag view.
 
 ### Example
@@ -296,8 +290,6 @@ void (empty response body)
 
 # **tags_feeds_list**
 > PaginatedFeedList tags_feeds_list(id, limit=limit, offset=offset)
-
-
 
 A view for the tag-specific collection of feeds.
 
@@ -393,8 +385,6 @@ Name | Type | Description  | Notes
 # **tags_list**
 > PaginatedTagList tags_list(limit=limit, offset=offset)
 
-
-
 A view for the collection of tags.
 
 ### Example
@@ -487,8 +477,6 @@ Name | Type | Description  | Notes
 # **tags_retrieve**
 > Tag tags_retrieve(id)
 
-
-
 A tag view.
 
 ### Example
@@ -578,8 +566,6 @@ Name | Type | Description  | Notes
 
 # **tags_search_list**
 > PaginatedTagList tags_search_list(color=color, id=id, limit=limit, name=name, offset=offset, owner_username=owner_username)
-
-
 
 A view for the collection of tags resulting from a query search.
 
@@ -681,8 +667,6 @@ Name | Type | Description  | Notes
 # **tags_taggings_create**
 > Tagging tags_taggings_create(id)
 
-
-
 A view for the collection of tag-specific taggings.
 
 ### Example
@@ -772,8 +756,6 @@ Name | Type | Description  | Notes
 
 # **tags_taggings_list**
 > PaginatedTaggingList tags_taggings_list(id, limit=limit, offset=offset)
-
-
 
 A view for the collection of tag-specific taggings.
 
@@ -868,8 +850,6 @@ Name | Type | Description  | Notes
 
 # **tags_update**
 > Tag tags_update(id, tag_request)
-
-
 
 A tag view.
 

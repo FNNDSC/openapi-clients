@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **url** | **str** |  | [readonly] 
 **id** | **int** |  | [readonly] 
-**username** | **str** |  | 
+**username** | **str** |  | [optional] 
 **email** | **str** |  | 
-**is_staff** | **bool** | Designates whether the user can log into this admin site. | [optional] 
+**is_staff** | **bool** | Designates whether the user can log into this admin site. | [readonly] 
 **groups** | **str** |  | [readonly] 
 
 ## Example

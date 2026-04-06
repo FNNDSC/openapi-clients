@@ -37,8 +37,6 @@ Method | HTTP request | Description
 # **all_plugins_instances_list**
 > PaginatedPluginInstanceList all_plugins_instances_list(limit=limit, offset=offset)
 
-
-
 A view for the collection of all plugin instances.
 
 ### Example
@@ -131,8 +129,6 @@ Name | Type | Description  | Notes
 # **plugins_boolean_parameter_retrieve**
 > BoolParameter plugins_boolean_parameter_retrieve(id)
 
-
-
 A boolean parameter view.
 
 ### Example
@@ -222,8 +218,6 @@ Name | Type | Description  | Notes
 
 # **plugins_computeresources_list**
 > PaginatedComputeResourceList plugins_computeresources_list(id, limit=limit, offset=offset)
-
-
 
 A view for a plugin-specific collection of compute resources.
 
@@ -319,8 +313,6 @@ Name | Type | Description  | Notes
 # **plugins_float_parameter_retrieve**
 > FloatParameter plugins_float_parameter_retrieve(id)
 
-
-
 A float parameter view.
 
 ### Example
@@ -410,8 +402,6 @@ Name | Type | Description  | Notes
 
 # **plugins_instances_create**
 > PluginInstance plugins_instances_create(id, plugin_instance_request=plugin_instance_request)
-
-
 
 A view for the collection of plugin instances.
 
@@ -506,9 +496,8 @@ Name | Type | Description  | Notes
 # **plugins_instances_descendants_list**
 > PaginatedPluginInstanceList plugins_instances_descendants_list(id, limit=limit, offset=offset)
 
-
-
-A view for the collection of plugin instances that are a descendant of this plugin instance.
+A view for the collection of plugin instances that are a descendant of this plugin
+instance.
 
 ### Example
 
@@ -602,8 +591,6 @@ Name | Type | Description  | Notes
 # **plugins_instances_destroy**
 > plugins_instances_destroy(id)
 
-
-
 A plugin instance view.
 
 ### Example
@@ -690,8 +677,6 @@ void (empty response body)
 
 # **plugins_instances_list**
 > PaginatedPluginInstanceList plugins_instances_list(id, limit=limit, offset=offset)
-
-
 
 A view for the collection of plugin instances.
 
@@ -787,8 +772,6 @@ Name | Type | Description  | Notes
 # **plugins_instances_parameters_list**
 > PaginatedGenericParameterList plugins_instances_parameters_list(id, limit=limit, offset=offset)
 
-
-
 A view for the collection of parameters that the plugin instance was run with.
 
 ### Example
@@ -883,8 +866,6 @@ Name | Type | Description  | Notes
 # **plugins_instances_retrieve**
 > PluginInstance plugins_instances_retrieve(id)
 
-
-
 A plugin instance view.
 
 ### Example
@@ -973,9 +954,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **plugins_instances_search_list**
-> PaginatedPluginInstanceList plugins_instances_search_list(feed_id=feed_id, id=id, limit=limit, max_end_date=max_end_date, max_start_date=max_start_date, min_end_date=min_end_date, min_start_date=min_start_date, offset=offset, owner_username=owner_username, plugin_id=plugin_id, plugin_name=plugin_name, plugin_name_exact=plugin_name_exact, plugin_version=plugin_version, previous_id=previous_id, root_id=root_id, status=status, title=title, workflow_id=workflow_id)
-
-
+> PaginatedPluginInstanceList plugins_instances_search_list(active=active, deletion_status=deletion_status, feed_id=feed_id, id=id, limit=limit, max_end_date=max_end_date, max_start_date=max_start_date, min_end_date=min_end_date, min_start_date=min_start_date, offset=offset, owner_username=owner_username, plugin_id=plugin_id, plugin_name=plugin_name, plugin_name_exact=plugin_name_exact, plugin_type=plugin_type, plugin_version=plugin_version, previous_id=previous_id, root_id=root_id, status=status, title=title, workflow_id=workflow_id)
 
 A view for the collection of plugin instances resulting from a query search.
 
@@ -1024,6 +1003,8 @@ configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
 async with aiochris_oag.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = aiochris_oag.PluginsApi(api_client)
+    active = True # bool |  (optional)
+    deletion_status = 'deletion_status_example' # str | * `inactive` - Inactive * `pending` - Pending * `failed` - Failed (optional)
     feed_id = 'feed_id_example' # str |  (optional)
     id = 56 # int |  (optional)
     limit = 56 # int | Number of results to return per page. (optional)
@@ -1036,15 +1017,16 @@ async with aiochris_oag.ApiClient(configuration) as api_client:
     plugin_id = 'plugin_id_example' # str |  (optional)
     plugin_name = 'plugin_name_example' # str |  (optional)
     plugin_name_exact = 'plugin_name_exact_example' # str |  (optional)
+    plugin_type = 'plugin_type_example' # str |  (optional)
     plugin_version = 'plugin_version_example' # str |  (optional)
     previous_id = 'previous_id_example' # str |  (optional)
     root_id = 'root_id_example' # str |  (optional)
-    status = 'status_example' # str | * `created` - Default initial * `waiting` - Waiting to be scheduled * `scheduled` - Scheduled on worker * `started` - Started on compute env * `registeringFiles` - Registering output files * `finishedSuccessfully` - Finished successfully * `finishedWithError` - Finished with error * `cancelled` - Cancelled (optional)
+    status = 'status_example' # str | * `created` - Default initial * `waiting` - Waiting to be scheduled * `copying` - Copying files to compute env * `scheduled` - Scheduled on worker * `started` - Started on compute env * `uploading` - Uploading files from compute env * `registeringFiles` - Registering output files * `finishedSuccessfully` - Finished successfully * `finishedWithError` - Finished with error * `cancelled` - Cancelled (optional)
     title = 'title_example' # str |  (optional)
     workflow_id = 'workflow_id_example' # str |  (optional)
 
     try:
-        api_response = await api_instance.plugins_instances_search_list(feed_id=feed_id, id=id, limit=limit, max_end_date=max_end_date, max_start_date=max_start_date, min_end_date=min_end_date, min_start_date=min_start_date, offset=offset, owner_username=owner_username, plugin_id=plugin_id, plugin_name=plugin_name, plugin_name_exact=plugin_name_exact, plugin_version=plugin_version, previous_id=previous_id, root_id=root_id, status=status, title=title, workflow_id=workflow_id)
+        api_response = await api_instance.plugins_instances_search_list(active=active, deletion_status=deletion_status, feed_id=feed_id, id=id, limit=limit, max_end_date=max_end_date, max_start_date=max_start_date, min_end_date=min_end_date, min_start_date=min_start_date, offset=offset, owner_username=owner_username, plugin_id=plugin_id, plugin_name=plugin_name, plugin_name_exact=plugin_name_exact, plugin_type=plugin_type, plugin_version=plugin_version, previous_id=previous_id, root_id=root_id, status=status, title=title, workflow_id=workflow_id)
         print("The response of PluginsApi->plugins_instances_search_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -1058,6 +1040,8 @@ async with aiochris_oag.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **active** | **bool**|  | [optional] 
+ **deletion_status** | **str**| * &#x60;inactive&#x60; - Inactive * &#x60;pending&#x60; - Pending * &#x60;failed&#x60; - Failed | [optional] 
  **feed_id** | **str**|  | [optional] 
  **id** | **int**|  | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
@@ -1070,10 +1054,11 @@ Name | Type | Description  | Notes
  **plugin_id** | **str**|  | [optional] 
  **plugin_name** | **str**|  | [optional] 
  **plugin_name_exact** | **str**|  | [optional] 
+ **plugin_type** | **str**|  | [optional] 
  **plugin_version** | **str**|  | [optional] 
  **previous_id** | **str**|  | [optional] 
  **root_id** | **str**|  | [optional] 
- **status** | **str**| * &#x60;created&#x60; - Default initial * &#x60;waiting&#x60; - Waiting to be scheduled * &#x60;scheduled&#x60; - Scheduled on worker * &#x60;started&#x60; - Started on compute env * &#x60;registeringFiles&#x60; - Registering output files * &#x60;finishedSuccessfully&#x60; - Finished successfully * &#x60;finishedWithError&#x60; - Finished with error * &#x60;cancelled&#x60; - Cancelled | [optional] 
+ **status** | **str**| * &#x60;created&#x60; - Default initial * &#x60;waiting&#x60; - Waiting to be scheduled * &#x60;copying&#x60; - Copying files to compute env * &#x60;scheduled&#x60; - Scheduled on worker * &#x60;started&#x60; - Started on compute env * &#x60;uploading&#x60; - Uploading files from compute env * &#x60;registeringFiles&#x60; - Registering output files * &#x60;finishedSuccessfully&#x60; - Finished successfully * &#x60;finishedWithError&#x60; - Finished with error * &#x60;cancelled&#x60; - Cancelled | [optional] 
  **title** | **str**|  | [optional] 
  **workflow_id** | **str**|  | [optional] 
 
@@ -1100,8 +1085,6 @@ Name | Type | Description  | Notes
 
 # **plugins_instances_splits_create**
 > PluginInstanceSplit plugins_instances_splits_create(id, plugin_instance_split_request=plugin_instance_split_request)
-
-
 
 A view for the collection of splits for a plugin instance.
 
@@ -1195,8 +1178,6 @@ Name | Type | Description  | Notes
 
 # **plugins_instances_splits_list**
 > PaginatedPluginInstanceSplitList plugins_instances_splits_list(id, limit=limit, offset=offset)
-
-
 
 A view for the collection of splits for a plugin instance.
 
@@ -1292,8 +1273,6 @@ Name | Type | Description  | Notes
 # **plugins_instances_splits_retrieve**
 > PluginInstanceSplit plugins_instances_splits_retrieve(id)
 
-
-
 A view for a plugin instance split.
 
 ### Example
@@ -1383,8 +1362,6 @@ Name | Type | Description  | Notes
 
 # **plugins_instances_update**
 > PluginInstance plugins_instances_update(id, plugin_instance_request=plugin_instance_request)
-
-
 
 A plugin instance view.
 
@@ -1479,8 +1456,6 @@ Name | Type | Description  | Notes
 # **plugins_integer_parameter_retrieve**
 > IntParameter plugins_integer_parameter_retrieve(id)
 
-
-
 An integer parameter view.
 
 ### Example
@@ -1570,8 +1545,6 @@ Name | Type | Description  | Notes
 
 # **plugins_list**
 > PaginatedPluginList plugins_list(limit=limit, offset=offset)
-
-
 
 A view for the collection of plugins.
 
@@ -1665,8 +1638,6 @@ Name | Type | Description  | Notes
 # **plugins_metas_list**
 > PaginatedPluginMetaList plugins_metas_list(limit=limit, offset=offset)
 
-
-
 A view for the collection of plugin metas.
 
 ### Example
@@ -1758,8 +1729,6 @@ Name | Type | Description  | Notes
 
 # **plugins_metas_plugins_list**
 > PaginatedPluginList plugins_metas_plugins_list(id, limit=limit, offset=offset)
-
-
 
 A view for the collection of meta-specific plugins.
 
@@ -1855,8 +1824,6 @@ Name | Type | Description  | Notes
 # **plugins_metas_retrieve**
 > PluginMeta plugins_metas_retrieve(id)
 
-
-
 A plugin meta view.
 
 ### Example
@@ -1945,9 +1912,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **plugins_metas_search_list**
-> PaginatedPluginMetaList plugins_metas_search_list(authors=authors, category=category, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, name_authors_category=name_authors_category, name_exact=name_exact, name_title_category=name_title_category, offset=offset, title=title, type=type)
-
-
+> PaginatedPluginMetaList plugins_metas_search_list(authors=authors, category=category, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, name_authors_category=name_authors_category, name_exact=name_exact, name_title_category=name_title_category, offset=offset, public_repo=public_repo, title=title, type=type)
 
 A view for the collection of plugin metas resulting from a query search.
 
@@ -2007,11 +1972,12 @@ async with aiochris_oag.ApiClient(configuration) as api_client:
     name_exact = 'name_exact_example' # str |  (optional)
     name_title_category = 'name_title_category_example' # str |  (optional)
     offset = 56 # int | The initial index from which to return the results. (optional)
+    public_repo = 'public_repo_example' # str |  (optional)
     title = 'title_example' # str |  (optional)
     type = 'type_example' # str |  (optional)
 
     try:
-        api_response = await api_instance.plugins_metas_search_list(authors=authors, category=category, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, name_authors_category=name_authors_category, name_exact=name_exact, name_title_category=name_title_category, offset=offset, title=title, type=type)
+        api_response = await api_instance.plugins_metas_search_list(authors=authors, category=category, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, name_authors_category=name_authors_category, name_exact=name_exact, name_title_category=name_title_category, offset=offset, public_repo=public_repo, title=title, type=type)
         print("The response of PluginsApi->plugins_metas_search_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -2036,6 +2002,7 @@ Name | Type | Description  | Notes
  **name_exact** | **str**|  | [optional] 
  **name_title_category** | **str**|  | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **public_repo** | **str**|  | [optional] 
  **title** | **str**|  | [optional] 
  **type** | **str**|  | [optional] 
 
@@ -2062,8 +2029,6 @@ Name | Type | Description  | Notes
 
 # **plugins_parameters_list**
 > PaginatedPluginParameterList plugins_parameters_list(id, limit=limit, offset=offset)
-
-
 
 A view for the collection of plugin parameters.
 
@@ -2159,8 +2124,6 @@ Name | Type | Description  | Notes
 # **plugins_parameters_retrieve**
 > PluginParameter plugins_parameters_retrieve(id)
 
-
-
 A plugin parameter view.
 
 ### Example
@@ -2250,8 +2213,6 @@ Name | Type | Description  | Notes
 
 # **plugins_path_parameter_retrieve**
 > PathParameter plugins_path_parameter_retrieve(id)
-
-
 
 A path parameter view.
 
@@ -2343,8 +2304,6 @@ Name | Type | Description  | Notes
 # **plugins_retrieve**
 > Plugin plugins_retrieve(id)
 
-
-
 A plugin view.
 
 ### Example
@@ -2433,9 +2392,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **plugins_search_list**
-> PaginatedPluginList plugins_search_list(category=category, compute_resource_id=compute_resource_id, description=description, dock_image=dock_image, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, name_exact=name_exact, name_title_category=name_title_category, offset=offset, title=title, type=type, version=version)
-
-
+> PaginatedPluginList plugins_search_list(category=category, compute_resource_id=compute_resource_id, description=description, dock_image=dock_image, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, name_exact=name_exact, name_title_category=name_title_category, offset=offset, public_repo=public_repo, sort=sort, title=title, type=type, version=version)
 
 A view for the collection of plugins resulting from a query search.
 
@@ -2496,12 +2453,14 @@ async with aiochris_oag.ApiClient(configuration) as api_client:
     name_exact = 'name_exact_example' # str |  (optional)
     name_title_category = 'name_title_category_example' # str |  (optional)
     offset = 56 # int | The initial index from which to return the results. (optional)
+    public_repo = 'public_repo_example' # str |  (optional)
+    sort = 'sort_example' # str |  (optional)
     title = 'title_example' # str |  (optional)
     type = 'type_example' # str |  (optional)
     version = 'version_example' # str |  (optional)
 
     try:
-        api_response = await api_instance.plugins_search_list(category=category, compute_resource_id=compute_resource_id, description=description, dock_image=dock_image, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, name_exact=name_exact, name_title_category=name_title_category, offset=offset, title=title, type=type, version=version)
+        api_response = await api_instance.plugins_search_list(category=category, compute_resource_id=compute_resource_id, description=description, dock_image=dock_image, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, name_exact=name_exact, name_title_category=name_title_category, offset=offset, public_repo=public_repo, sort=sort, title=title, type=type, version=version)
         print("The response of PluginsApi->plugins_search_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -2527,6 +2486,8 @@ Name | Type | Description  | Notes
  **name_exact** | **str**|  | [optional] 
  **name_title_category** | **str**|  | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **public_repo** | **str**|  | [optional] 
+ **sort** | **str**|  | [optional] 
  **title** | **str**|  | [optional] 
  **type** | **str**|  | [optional] 
  **version** | **str**|  | [optional] 
@@ -2554,8 +2515,6 @@ Name | Type | Description  | Notes
 
 # **plugins_string_parameter_retrieve**
 > StrParameter plugins_string_parameter_retrieve(id)
-
-
 
 A string parameter view.
 
@@ -2646,8 +2605,6 @@ Name | Type | Description  | Notes
 
 # **plugins_unextpath_parameter_retrieve**
 > UnextpathParameter plugins_unextpath_parameter_retrieve(id)
-
-
 
 A unextpath parameter view.
 

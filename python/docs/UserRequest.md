@@ -5,10 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **str** |  | 
+**username** | **str** |  | [optional] 
 **email** | **str** |  | 
 **password** | **str** |  | 
-**is_staff** | **bool** | Designates whether the user can log into this admin site. | [optional] 
 
 ## Example
 

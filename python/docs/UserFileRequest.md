@@ -1,12 +1,13 @@
 # UserFileRequest
 
+A superclass for serializers of ``ChrisFile`` or similar.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **upload_path** | **str** |  | [optional] 
-**fname** | **bytearray** |  | [optional] 
+**fname** | **bytes** |  | [optional] 
 **public** | **bool** |  | [optional] 
 
 ## Example

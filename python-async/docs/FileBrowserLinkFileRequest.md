@@ -1,12 +1,13 @@
 # FileBrowserLinkFileRequest
 
+A superclass for serializers of ``ChrisFile`` or similar.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **path** | **str** |  | [optional] 
-**fname** | **bytearray** |  | [optional] 
+**fname** | **bytes** |  | [optional] 
 **public** | **bool** |  | [optional] 
 **new_link_file_path** | **str** |  | [optional] 
 

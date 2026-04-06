@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
+**count** | **int** |  | 
 **next** | **str** |  | [optional] 
 **previous** | **str** |  | [optional] 
-**results** | [**List[PluginParameter]**](PluginParameter.md) |  | [optional] 
+**results** | [**List[PluginParameter]**](PluginParameter.md) |  | 
 
 ## Example
 

@@ -7,11 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **str** |  | [optional] 
 **compute_resource_name** | **str** |  | [optional] 
-**status** | [**StatusEnum**](StatusEnum.md) |  | [optional] 
 **cpu_limit** | **int** |  | [optional] 
 **memory_limit** | **int** |  | [optional] 
 **number_of_workers** | **int** |  | [optional] 
 **gpu_limit** | **int** |  | [optional] 
+**deletion_status** | [**DeletionStatusEnum**](DeletionStatusEnum.md) |  | [optional] 
+**deletion_requested_at** | **datetime** |  | [optional] 
+**deletion_error** | **str** |  | [optional] 
 **previous_id** | **int** |  | [optional] 
 
 ## Example

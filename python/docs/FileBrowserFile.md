@@ -1,5 +1,6 @@
 # FileBrowserFile
 
+A superclass for serializers of ``ChrisFile`` or similar.
 
 ## Properties
 

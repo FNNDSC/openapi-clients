@@ -41,8 +41,6 @@ Method | HTTP request | Description
 # **all_workflows_list**
 > PaginatedWorkflowList all_workflows_list(limit=limit, offset=offset)
 
-
-
 A view for the collection of all workflows.
 
 ### Example
@@ -135,9 +133,8 @@ Name | Type | Description  | Notes
 # **pipelines_boolean_parameter_retrieve**
 > DefaultPipingBoolParameter pipelines_boolean_parameter_retrieve(id)
 
-
-
-A view for a boolean default value for a plugin parameter in a pipeline's plugin piping.
+A view for a boolean default value for a plugin parameter in a pipeline's
+plugin piping.
 
 ### Example
 
@@ -227,9 +224,8 @@ Name | Type | Description  | Notes
 # **pipelines_boolean_parameter_update**
 > DefaultPipingBoolParameter pipelines_boolean_parameter_update(id, default_piping_bool_parameter_request=default_piping_bool_parameter_request)
 
-
-
-A view for a boolean default value for a plugin parameter in a pipeline's plugin piping.
+A view for a boolean default value for a plugin parameter in a pipeline's
+plugin piping.
 
 ### Example
 
@@ -320,9 +316,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pipelines_create**
-> Pipeline pipelines_create(pipeline_request)
-
-
+> Pipeline pipelines_create(pipeline_request=pipeline_request)
 
 A view for the collection of pipelines.
 
@@ -372,10 +366,10 @@ configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
 async with aiochris_oag.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = aiochris_oag.PipelinesApi(api_client)
-    pipeline_request = aiochris_oag.PipelineRequest() # PipelineRequest | 
+    pipeline_request = aiochris_oag.PipelineRequest() # PipelineRequest |  (optional)
 
     try:
-        api_response = await api_instance.pipelines_create(pipeline_request)
+        api_response = await api_instance.pipelines_create(pipeline_request=pipeline_request)
         print("The response of PipelinesApi->pipelines_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -389,7 +383,7 @@ async with aiochris_oag.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pipeline_request** | [**PipelineRequest**](PipelineRequest.md)|  | 
+ **pipeline_request** | [**PipelineRequest**](PipelineRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -414,8 +408,6 @@ Name | Type | Description  | Notes
 
 # **pipelines_destroy**
 > pipelines_destroy(id)
-
-
 
 A pipeline view.
 
@@ -504,9 +496,8 @@ void (empty response body)
 # **pipelines_float_parameter_retrieve**
 > DefaultPipingFloatParameter pipelines_float_parameter_retrieve(id)
 
-
-
-A view for a float default value for a plugin parameter in a pipeline's plugin piping.
+A view for a float default value for a plugin parameter in a pipeline's
+plugin piping.
 
 ### Example
 
@@ -596,9 +587,8 @@ Name | Type | Description  | Notes
 # **pipelines_float_parameter_update**
 > DefaultPipingFloatParameter pipelines_float_parameter_update(id, default_piping_float_parameter_request=default_piping_float_parameter_request)
 
-
-
-A view for a float default value for a plugin parameter in a pipeline's plugin piping.
+A view for a float default value for a plugin parameter in a pipeline's
+plugin piping.
 
 ### Example
 
@@ -691,9 +681,8 @@ Name | Type | Description  | Notes
 # **pipelines_integer_parameter_retrieve**
 > DefaultPipingIntParameter pipelines_integer_parameter_retrieve(id)
 
-
-
-A view for an integer default value for a plugin parameter in a pipeline's plugin piping.
+A view for an integer default value for a plugin parameter in a pipeline's
+plugin piping.
 
 ### Example
 
@@ -783,9 +772,8 @@ Name | Type | Description  | Notes
 # **pipelines_integer_parameter_update**
 > DefaultPipingIntParameter pipelines_integer_parameter_update(id, default_piping_int_parameter_request=default_piping_int_parameter_request)
 
-
-
-A view for an integer default value for a plugin parameter in a pipeline's plugin piping.
+A view for an integer default value for a plugin parameter in a pipeline's
+plugin piping.
 
 ### Example
 
@@ -878,8 +866,6 @@ Name | Type | Description  | Notes
 # **pipelines_json_retrieve**
 > PipelineCustomJson pipelines_json_retrieve(id)
 
-
-
 A pipeline with a custom JSON view resembling the originally submitted pipeline data.
 
 ### Example
@@ -969,8 +955,6 @@ Name | Type | Description  | Notes
 
 # **pipelines_list**
 > PaginatedPipelineList pipelines_list(limit=limit, offset=offset)
-
-
 
 A view for the collection of pipelines.
 
@@ -1063,8 +1047,6 @@ Name | Type | Description  | Notes
 
 # **pipelines_parameters_list**
 > PaginatedGenericDefaultPipingParameterList pipelines_parameters_list(id, limit=limit, offset=offset)
-
-
 
 A view for the collection of pipeline-specific plugin parameters' defaults.
 
@@ -1160,8 +1142,6 @@ Name | Type | Description  | Notes
 # **pipelines_pipings_list**
 > PaginatedPluginPipingList pipelines_pipings_list(id, limit=limit, offset=offset)
 
-
-
 A view for the collection of pipeline-specific plugin pipings.
 
 ### Example
@@ -1256,8 +1236,6 @@ Name | Type | Description  | Notes
 # **pipelines_pipings_retrieve**
 > PluginPiping pipelines_pipings_retrieve(id)
 
-
-
 A plugin piping view.
 
 ### Example
@@ -1347,8 +1325,6 @@ Name | Type | Description  | Notes
 
 # **pipelines_plugins_list**
 > PaginatedPluginList pipelines_plugins_list(id, limit=limit, offset=offset)
-
-
 
 A view for a pipeline-specific collection of plugins.
 
@@ -1444,8 +1420,6 @@ Name | Type | Description  | Notes
 # **pipelines_retrieve**
 > Pipeline pipelines_retrieve(id)
 
-
-
 A pipeline view.
 
 ### Example
@@ -1534,9 +1508,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pipelines_search_list**
-> PaginatedPipelineList pipelines_search_list(authors=authors, category=category, description=description, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, offset=offset, owner_username=owner_username)
-
-
+> PaginatedPipelineList pipelines_search_list(authors=authors, category=category, description=description, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, name_exact=name_exact, offset=offset, owner_username=owner_username)
 
 A view for the collection of pipelines resulting from a query search.
 
@@ -1593,11 +1565,12 @@ async with aiochris_oag.ApiClient(configuration) as api_client:
     max_creation_date = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     min_creation_date = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     name = 'name_example' # str |  (optional)
+    name_exact = 'name_exact_example' # str |  (optional)
     offset = 56 # int | The initial index from which to return the results. (optional)
     owner_username = 'owner_username_example' # str |  (optional)
 
     try:
-        api_response = await api_instance.pipelines_search_list(authors=authors, category=category, description=description, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, offset=offset, owner_username=owner_username)
+        api_response = await api_instance.pipelines_search_list(authors=authors, category=category, description=description, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, name=name, name_exact=name_exact, offset=offset, owner_username=owner_username)
         print("The response of PipelinesApi->pipelines_search_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -1619,6 +1592,7 @@ Name | Type | Description  | Notes
  **max_creation_date** | **datetime**|  | [optional] 
  **min_creation_date** | **datetime**|  | [optional] 
  **name** | **str**|  | [optional] 
+ **name_exact** | **str**|  | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
  **owner_username** | **str**|  | [optional] 
 
@@ -1645,8 +1619,6 @@ Name | Type | Description  | Notes
 
 # **pipelines_sourcefiles_create**
 > PipelineSourceFile pipelines_sourcefiles_create(pipeline_source_file_request)
-
-
 
 A view for the collection of pipeline source files.
 
@@ -1738,8 +1710,6 @@ Name | Type | Description  | Notes
 
 # **pipelines_sourcefiles_list**
 > PaginatedPipelineSourceFileList pipelines_sourcefiles_list(limit=limit, offset=offset)
-
-
 
 A view for the collection of pipeline source files.
 
@@ -1833,8 +1803,6 @@ Name | Type | Description  | Notes
 # **pipelines_sourcefiles_retrieve**
 > PipelineSourceFile pipelines_sourcefiles_retrieve(id)
 
-
-
 A pipeline source file view.
 
 ### Example
@@ -1923,9 +1891,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pipelines_sourcefiles_retrieve_0**
-> bytearray pipelines_sourcefiles_retrieve_0(id)
-
-
+> bytes pipelines_sourcefiles_retrieve_0(id)
 
 Overriden to be able to make a GET request to an actual file resource.
 
@@ -1994,7 +1960,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bytearray**
+**bytes**
 
 ### Authorization
 
@@ -2014,9 +1980,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pipelines_sourcefiles_search_list**
-> PaginatedPipelineSourceFileList pipelines_sourcefiles_search_list(fname=fname, fname_exact=fname_exact, fname_icontains=fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, offset=offset, uploader_username=uploader_username)
-
-
+> PaginatedPipelineSourceFileList pipelines_sourcefiles_search_list(fname=fname, fname_exact=fname_exact, fname_icontains=fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, offset=offset, pipeline_id=pipeline_id, pipeline_name=pipeline_name, uploader_username=uploader_username)
 
 A view for the collection of pipeline source files resulting from a query search.
 
@@ -2073,10 +2037,12 @@ async with aiochris_oag.ApiClient(configuration) as api_client:
     max_creation_date = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     min_creation_date = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     offset = 56 # int | The initial index from which to return the results. (optional)
+    pipeline_id = 'pipeline_id_example' # str |  (optional)
+    pipeline_name = 'pipeline_name_example' # str |  (optional)
     uploader_username = 'uploader_username_example' # str |  (optional)
 
     try:
-        api_response = await api_instance.pipelines_sourcefiles_search_list(fname=fname, fname_exact=fname_exact, fname_icontains=fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, offset=offset, uploader_username=uploader_username)
+        api_response = await api_instance.pipelines_sourcefiles_search_list(fname=fname, fname_exact=fname_exact, fname_icontains=fname_icontains, id=id, limit=limit, max_creation_date=max_creation_date, min_creation_date=min_creation_date, offset=offset, pipeline_id=pipeline_id, pipeline_name=pipeline_name, uploader_username=uploader_username)
         print("The response of PipelinesApi->pipelines_sourcefiles_search_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -2098,6 +2064,8 @@ Name | Type | Description  | Notes
  **max_creation_date** | **datetime**|  | [optional] 
  **min_creation_date** | **datetime**|  | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **pipeline_id** | **str**|  | [optional] 
+ **pipeline_name** | **str**|  | [optional] 
  **uploader_username** | **str**|  | [optional] 
 
 ### Return type
@@ -2124,9 +2092,8 @@ Name | Type | Description  | Notes
 # **pipelines_string_parameter_retrieve**
 > DefaultPipingStrParameter pipelines_string_parameter_retrieve(id)
 
-
-
-A view for a string default value for a plugin parameter in a pipeline's plugin piping.
+A view for a string default value for a plugin parameter in a pipeline's
+plugin piping.
 
 ### Example
 
@@ -2216,9 +2183,8 @@ Name | Type | Description  | Notes
 # **pipelines_string_parameter_update**
 > DefaultPipingStrParameter pipelines_string_parameter_update(id, default_piping_str_parameter_request=default_piping_str_parameter_request)
 
-
-
-A view for a string default value for a plugin parameter in a pipeline's plugin piping.
+A view for a string default value for a plugin parameter in a pipeline's
+plugin piping.
 
 ### Example
 
@@ -2309,9 +2275,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pipelines_update**
-> Pipeline pipelines_update(id, pipeline_request)
-
-
+> Pipeline pipelines_update(id, pipeline_request=pipeline_request)
 
 A pipeline view.
 
@@ -2362,10 +2326,10 @@ async with aiochris_oag.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = aiochris_oag.PipelinesApi(api_client)
     id = 56 # int | 
-    pipeline_request = aiochris_oag.PipelineRequest() # PipelineRequest | 
+    pipeline_request = aiochris_oag.PipelineRequest() # PipelineRequest |  (optional)
 
     try:
-        api_response = await api_instance.pipelines_update(id, pipeline_request)
+        api_response = await api_instance.pipelines_update(id, pipeline_request=pipeline_request)
         print("The response of PipelinesApi->pipelines_update:\n")
         pprint(api_response)
     except Exception as e:
@@ -2380,7 +2344,7 @@ async with aiochris_oag.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
- **pipeline_request** | [**PipelineRequest**](PipelineRequest.md)|  | 
+ **pipeline_request** | [**PipelineRequest**](PipelineRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2405,8 +2369,6 @@ Name | Type | Description  | Notes
 
 # **pipelines_workflows_create**
 > Workflow pipelines_workflows_create(id, workflow_request=workflow_request)
-
-
 
 A view for the collection of pipeline-specific workflows.
 
@@ -2501,8 +2463,6 @@ Name | Type | Description  | Notes
 # **pipelines_workflows_destroy**
 > pipelines_workflows_destroy(id)
 
-
-
 A workflow view.
 
 ### Example
@@ -2589,8 +2549,6 @@ void (empty response body)
 
 # **pipelines_workflows_plugininstances_list**
 > PaginatedPluginInstanceList pipelines_workflows_plugininstances_list(id, limit=limit, offset=offset)
-
-
 
 A view for the collection of plugin instances that compose the workflow.
 
@@ -2686,8 +2644,6 @@ Name | Type | Description  | Notes
 # **pipelines_workflows_retrieve**
 > Workflow pipelines_workflows_retrieve(id)
 
-
-
 A workflow view.
 
 ### Example
@@ -2777,8 +2733,6 @@ Name | Type | Description  | Notes
 
 # **pipelines_workflows_search_list**
 > PaginatedWorkflowList pipelines_workflows_search_list(id=id, limit=limit, offset=offset, owner_username=owner_username, pipeline_name=pipeline_name, title=title)
-
-
 
 A view for the collection of workflows resulting from a query search.
 
@@ -2880,8 +2834,6 @@ Name | Type | Description  | Notes
 # **pipelines_workflows_update**
 > Workflow pipelines_workflows_update(id, workflow_request=workflow_request)
 
-
-
 A workflow view.
 
 ### Example
@@ -2974,8 +2926,6 @@ Name | Type | Description  | Notes
 
 # **workflows_list**
 > PaginatedWorkflowList workflows_list(id, limit=limit, offset=offset)
-
-
 
 A view for the collection of pipeline-specific workflows.
 

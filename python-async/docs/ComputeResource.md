@@ -12,7 +12,9 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **compute_url** | **str** |  | 
 **compute_auth_url** | **str** |  | [optional] 
-**compute_innetwork** | **bool** |  | [optional] 
+**compute_innetwork** | **bool** |  | [readonly] 
+**compute_requires_copy_job** | **bool** |  | [readonly] 
+**compute_requires_upload_job** | **bool** |  | [readonly] 
 **description** | **str** |  | [optional] 
 **max_job_exec_seconds** | **int** |  | [optional] 
 

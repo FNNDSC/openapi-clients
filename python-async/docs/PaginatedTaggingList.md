@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
+**count** | **int** |  | 
 **next** | **str** |  | [optional] 
 **previous** | **str** |  | [optional] 
-**results** | [**List[Tagging]**](Tagging.md) |  | [optional] 
+**results** | [**List[Tagging]**](Tagging.md) |  | 
 
 ## Example
 

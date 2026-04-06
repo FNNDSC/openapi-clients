@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **max_memory_limit** | **int** |  | [optional] 
 **min_gpu_limit** | **int** |  | [optional] 
 **max_gpu_limit** | **int** |  | [optional] 
-**fname** | **bytearray** |  | [optional] 
+**fname** | **bytes** |  | [optional] 
 **plugin_store_url** | **str** |  | [optional] 
 **compute_names** | **str** |  | 
 

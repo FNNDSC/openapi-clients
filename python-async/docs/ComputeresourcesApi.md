@@ -12,8 +12,6 @@ Method | HTTP request | Description
 # **computeresources_list**
 > PaginatedComputeResourceList computeresources_list(limit=limit, offset=offset)
 
-
-
 A view for the collection of compute resources.
 
 ### Example
@@ -106,8 +104,6 @@ Name | Type | Description  | Notes
 # **computeresources_retrieve**
 > ComputeResource computeresources_retrieve(id)
 
-
-
 A compute resource view.
 
 ### Example
@@ -197,8 +193,6 @@ Name | Type | Description  | Notes
 
 # **computeresources_search_list**
 > PaginatedComputeResourceList computeresources_search_list(description=description, id=id, limit=limit, name=name, name_exact=name_exact, offset=offset, plugin_id=plugin_id)
-
-
 
 A view for the collection of compute resources resulting from a query search.
 

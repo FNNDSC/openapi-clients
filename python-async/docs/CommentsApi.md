@@ -15,8 +15,6 @@ Method | HTTP request | Description
 # **comments_create**
 > Comment comments_create(id, comment_request=comment_request)
 
-
-
 A view for the collection of comments.
 
 ### Example
@@ -110,8 +108,6 @@ Name | Type | Description  | Notes
 # **comments_destroy**
 > comments_destroy(id)
 
-
-
 A comment view.
 
 ### Example
@@ -198,8 +194,6 @@ void (empty response body)
 
 # **comments_list**
 > PaginatedCommentList comments_list(id, limit=limit, offset=offset)
-
-
 
 A view for the collection of comments.
 
@@ -295,8 +289,6 @@ Name | Type | Description  | Notes
 # **comments_retrieve**
 > Comment comments_retrieve(id)
 
-
-
 A comment view.
 
 ### Example
@@ -386,8 +378,6 @@ Name | Type | Description  | Notes
 
 # **comments_search_list**
 > PaginatedCommentList comments_search_list(id, id2=id2, limit=limit, offset=offset)
-
-
 
 A view for the collection of feed-specific comments resulting from a query search.
 
@@ -484,8 +474,6 @@ Name | Type | Description  | Notes
 
 # **comments_update**
 > Comment comments_update(id, comment_request=comment_request)
-
-
 
 A comment view.
 

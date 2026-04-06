@@ -14,8 +14,6 @@ Method | HTTP request | Description
 # **userpermissions_create**
 > FeedUserPermission userpermissions_create(id, feed_user_permission_request)
 
-
-
 A view for a feed's collection of user permissions.
 
 ### Example
@@ -109,8 +107,6 @@ Name | Type | Description  | Notes
 # **userpermissions_destroy**
 > userpermissions_destroy(id)
 
-
-
 A view for a feed's user permission.
 
 ### Example
@@ -197,8 +193,6 @@ void (empty response body)
 
 # **userpermissions_list**
 > PaginatedFeedUserPermissionList userpermissions_list(id, limit=limit, offset=offset)
-
-
 
 A view for a feed's collection of user permissions.
 
@@ -294,8 +288,6 @@ Name | Type | Description  | Notes
 # **userpermissions_retrieve**
 > FeedUserPermission userpermissions_retrieve(id)
 
-
-
 A view for a feed's user permission.
 
 ### Example
@@ -386,9 +378,8 @@ Name | Type | Description  | Notes
 # **userpermissions_search_list**
 > PaginatedFeedUserPermissionList userpermissions_search_list(id, id2=id2, limit=limit, offset=offset, username=username)
 
-
-
-A view for the collection of feed-specific user permissions resulting from a query search.
+A view for the collection of feed-specific user permissions resulting from a query
+search.
 
 ### Example
 

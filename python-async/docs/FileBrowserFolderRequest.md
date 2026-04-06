@@ -7,6 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **path** | **str** |  | [optional] 
 **public** | **bool** |  | [optional] 
+**deletion_status** | [**DeletionStatusEnum**](DeletionStatusEnum.md) |  | [optional] 
+**deletion_requested_at** | **datetime** |  | [optional] 
+**deletion_error** | **str** |  | [optional] 
 
 ## Example
 

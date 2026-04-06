@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
+**name** | **str** |  | [optional] 
 **locked** | **bool** |  | [optional] 
 **authors** | **str** |  | [optional] 
 **category** | **str** |  | [optional] 

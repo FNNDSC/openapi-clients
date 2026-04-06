@@ -14,8 +14,6 @@ Method | HTTP request | Description
 # **grouppermissions_create**
 > FeedGroupPermission grouppermissions_create(id, feed_group_permission_request)
 
-
-
 A view for a feed's collection of group permissions.
 
 ### Example
@@ -109,8 +107,6 @@ Name | Type | Description  | Notes
 # **grouppermissions_destroy**
 > grouppermissions_destroy(id)
 
-
-
 A view for a feed's group permission.
 
 ### Example
@@ -197,8 +193,6 @@ void (empty response body)
 
 # **grouppermissions_list**
 > PaginatedFeedGroupPermissionList grouppermissions_list(id, limit=limit, offset=offset)
-
-
 
 A view for a feed's collection of group permissions.
 
@@ -294,8 +288,6 @@ Name | Type | Description  | Notes
 # **grouppermissions_retrieve**
 > FeedGroupPermission grouppermissions_retrieve(id)
 
-
-
 A view for a feed's group permission.
 
 ### Example
@@ -386,9 +378,8 @@ Name | Type | Description  | Notes
 # **grouppermissions_search_list**
 > PaginatedFeedGroupPermissionList grouppermissions_search_list(id, group_name=group_name, id2=id2, limit=limit, offset=offset)
 
-
-
-A view for the collection of feed-specific group permissions resulting from a query search.
+A view for the collection of feed-specific group permissions resulting from a query
+search.
 
 ### Example
 

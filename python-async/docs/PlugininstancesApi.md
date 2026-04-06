@@ -8,9 +8,7 @@ Method | HTTP request | Description
 
 
 # **plugininstances_list**
-> PaginatedPluginInstanceList plugininstances_list(id, limit=limit, offset=offset)
-
-
+> PaginatedPartialPluginInstanceList plugininstances_list(id, limit=limit, offset=offset)
 
 A view for the collection of feed-specific plugin instances.
 
@@ -22,7 +20,7 @@ A view for the collection of feed-specific plugin instances.
 
 ```python
 import aiochris_oag
-from aiochris_oag.models.paginated_plugin_instance_list import PaginatedPluginInstanceList
+from aiochris_oag.models.paginated_partial_plugin_instance_list import PaginatedPartialPluginInstanceList
 from aiochris_oag.rest import ApiException
 from pprint import pprint
 
@@ -84,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaginatedPluginInstanceList**](PaginatedPluginInstanceList.md)
+[**PaginatedPartialPluginInstanceList**](PaginatedPartialPluginInstanceList.md)
 
 ### Authorization
 

@@ -1,5 +1,6 @@
 # PipelineSourceFile
 
+A superclass for serializers of ``ChrisFile`` or similar.
 
 ## Properties
 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 **fname** | **str** |  | 
 **fsize** | **int** | Get the size of the file in bytes. | [readonly] 
 **public** | **bool** |  | [optional] 
-**ftype** | [**PipelineSourceFileFtype**](PipelineSourceFileFtype.md) |  | 
+**ftype** | **str** |  | [readonly] 
 **uploader_username** | **str** | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. | [readonly] 
 **owner_username** | **str** | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. | [readonly] 
 **pipeline_id** | **int** |  | [readonly] 
