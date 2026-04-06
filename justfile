@@ -1,7 +1,7 @@
-generate-batch: sync-versions hacks && postprocess-rust
+generate-batch: sync-versions
     podman run --rm --userns=keep-id:uid=100100,gid=100100 -u 100100:100100 \
         -v "$(pwd):/share" -w /share \
-        docker.io/openapitools/openapi-generator-cli:v7.14.0 \
+        docker.io/openapitools/openapi-generator-cli:v7.21.0 \
         batch --clean --fail-fast --root-dir /share --includes-base-dir /share/includes \
         configs/*.yaml
 
