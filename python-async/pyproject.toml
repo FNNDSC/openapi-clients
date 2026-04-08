@@ -1,6 +1,6 @@
 [project]
 name = "aiochris_oag"
-version = "0.0.2"
+version = "0.0.3"
 description = "ChRIS Research Integration System: Ultron BackEnd (CUBE) API"
 authors = [
   {name = "Fetal-Neonatal Neuroimaging Developmental Science Center",email = "dev@babymri.org"},
